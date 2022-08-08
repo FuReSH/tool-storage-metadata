@@ -1,0 +1,16 @@
+---
+name: 
+    - YAML Ain't Markup Language
+    - Yet Another Markup Language
+    accronym: YAML
+icon:
+    - svg: https://en.wikipedia.org/wiki/YAML#/media/File:Official_YAML_Logo.svg
+url:
+    - https://yaml.org/
+version:
+    - 1.2.1
+    date: 2009-10-01
+    - 1.2.2
+    date: 2021-10-01
+Wikidata:
+    - https://www.wikidata.org/wiki/Q281876
