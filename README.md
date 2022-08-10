@@ -68,7 +68,7 @@ Für jede Blackbox gibt es eine YAML-Datei und eine visuelle Übersicht über de
 
 ![Blackbox: Web Scraping](Blackboxes/web-scraping_schema.jpg)
 
-Die YAML-Datei kann entweder ein vollständiges Subset unserer *tool directory* sein oder stark reduziert. In letzterem Fall muss sie für die Menschenlesbarkeit immer auch einen Namen enthalten.
+Die YAML-Datei kann entweder ein vollständiges Subset unserer *tool directory* sein oder stark reduziert. In letzterem Fall muss sie für die Menschenlesbarkeit immer auch einen Namen enthalten. Details sind in den Dokumenten zur technischen Infrastruktur spezifiziert.
 
 ```yaml
 --- 
