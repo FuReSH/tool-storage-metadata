@@ -64,7 +64,8 @@ Wir stellen uns einen mehrheitlich automatisierten Prozess der Erstellung der Se
 
 # Blackboxes
 
-Für jede Blackbox gibt es eine YAML-Datei und eine visuelle Übersicht über den Inhalt und wie er zusammengehört. Dieser macht von der schematischen Ansicht unserer Setkarten Gebrauch.
+Blackboxes sind vor allem Methoden und Konzepte und nicht einzelne Werkzeuge, also "Web Scraping" und nicht "Python". Für jede Blackbox gibt es Input / Output und eine Menge Inhalt. Jede Blackbox hat auch einen Setkarte im Werkzeugregal, aus der Informationen gezogen werden können. 
+Wie gehabt, werden Blackboxes mit YAML-Dateien beschrieben. Dazu gibt es eine eine visuelle Übersicht über den Inhalt und wie er zusammengehört. Dieser macht von der schematischen Ansicht unserer Setkarten Gebrauch.
 
 ![Blackbox: Web Scraping](Blackboxes/web-scraping_schema.jpg)
 
