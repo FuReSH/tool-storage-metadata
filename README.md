@@ -69,42 +69,4 @@ Wie gehabt, werden Blackboxes mit YAML-Dateien beschrieben. Dazu gibt es eine ei
 
 ![Blackbox: Web Scraping](Blackboxes/web-scraping_schema.jpg)
 
-Die YAML-Datei kann entweder ein vollständiges Subset unserer *tool directory* sein oder stark reduziert. In letzterem Fall muss sie für die Menschenlesbarkeit immer auch einen Namen enthalten. Details sind in den Dokumenten zur technischen Infrastruktur spezifiziert.
-
-```yaml
---- 
-methods:
-- name: Web scraping
-  category: method
-  wikidata: https://www.wikidata.org/wiki/Q665452
-
-concepts:
-- name: Webseite
-  category: concept
-  wikidata: https://www.wikidata.org/wiki/Q35127
-- name: IDE
-  expansion: Integrated Development Environment
-  category: concept
-  wikidata: https://www.wikidata.org/wiki/Q13741
-
-languages:
-- name: CSV
-  category: serialization
-  wikidata: https://www.wikidata.org/wiki/Q935809
-- name: HTML
-  expansion: Hypertext Markup Language
-  wikidata: https://www.wikidata.org/wiki/Q8811
-  category: 
-    - language
-    - serialization
-software:
-- name: Bash
-  expansion: Bourne again shell
-  wikidata: https://www.wikidata.org/wiki/Q189248
-- name: wget
-  category: 
-    - software
-    - command line utility
-  wikidata: https://www.wikidata.org/wiki/Q535461
-  tapor: https://tapor.ca/tools/1280
-```
+~~Die YAML-Datei kann entweder ein vollständiges Subset unserer *tool directory* sein oder stark reduziert. In letzterem Fall muss sie für die Menschenlesbarkeit immer auch einen Namen enthalten. Details sind in den Dokumenten zur technischen Infrastruktur spezifiziert.~~

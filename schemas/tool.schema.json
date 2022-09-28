@@ -11,14 +11,15 @@
         },
         "acronym": {
             "description": "",
-            "type": "string"
+            "type": ["string"]
         },
         "images": {
             "description": "Links to logo in Wikidata Commons",
             "type": "array",
             "items": {
                 "type": "string",
-                "pattern": "^(https://upload.wikimedia.org/wikipedia/commons/)(?:[-a-zA-Z0-9()@:%_\\+.~#?&\/=]*)$"
+                "pattern": "^(https://upload.wikimedia.org/wikipedia/commons/).+",
+                "format": "uri"
             }
         },
         "wikidataId": {
@@ -27,25 +28,12 @@
             "pattern": "^Q[0-9]+"
         },
         "categories": {
-            "description": "",
+            "description": "Our tool set kit",
             "type": "array",
-            "prefixItems": [
-                { "type": "string"},
-                { "enum": [
-                    "software", 
-                    "format", 
-                    "programming language",
-                    "method",
-                    "concept",
-                    "interface",
-                    "library"
-                    ]
-                }
-            ], 
-            "items": false,
-            "minItems": 1,
-            "uniqueItems": true
-        }
+            "items": {
+                "type": "string"
+            }
+        }        
     },
     "required": [ "name", "wikidataId", "categories" ]
 }
