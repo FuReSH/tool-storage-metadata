@@ -1,0 +1,7 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://github.com/FuReSH/Werkzeugregal/schemas/blackbox.schema.json",
+    "title": "Blackbox",
+    "description": "Any digital tool having input, processing step and output. Used by Scholarly Makerspace.",
+    "type": "object"
+  }

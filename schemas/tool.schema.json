@@ -1,0 +1,51 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://github.com/FuReSH/Werkzeugregal/schemas/tool.schema.json",
+    "title": "Tool",
+    "description": "A digital tool used for research in the humanities",
+    "type": "object",
+    "properties": {
+        "name": {
+            "description": "The title of the digital tool.",
+            "type": "string"
+        },
+        "acronym": {
+            "description": "",
+            "type": "string"
+        },
+        "images": {
+            "description": "Links to logo in Wikidata Commons",
+            "type": "array",
+            "items": {
+                "type": "string",
+                "pattern": "^(https://upload.wikimedia.org/wikipedia/commons/)(?:[-a-zA-Z0-9()@:%_\\+.~#?&\/=]*)$"
+            }
+        },
+        "wikidataId": {
+            "description": "Unique identifier in Wikidata. Starts always with prefix Q",
+            "type": "string",
+            "pattern": "^Q[0-9]+"
+        },
+        "categories": {
+            "description": "",
+            "type": "array",
+            "prefixItems": [
+                { "type": "string"},
+                { "enum": [
+                    "software", 
+                    "format", 
+                    "programming language",
+                    "method",
+                    "concept",
+                    "interface",
+                    "library"
+                    ]
+                }
+            ], 
+            "items": false,
+            "minItems": 1,
+            "uniqueItems": true
+        }
+    },
+    "required": [ "name", "wikidataId", "categories" ]
+}

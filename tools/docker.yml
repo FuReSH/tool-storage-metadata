@@ -1,8 +1,8 @@
 name: Docker
 acronym: null
-icon:
+images:
     - svg: https://upload.wikimedia.org/wikipedia/commons/4/4e/Docker_%28container_engine%29_logo.svg
-wikidata_id: Q15206305
-category:
+wikidataId: Q15206305
+categories:
     - software
     - format
