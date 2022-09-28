@@ -2,8 +2,7 @@ name: Docker
 acronym: null
 icon:
     - svg: https://upload.wikimedia.org/wikipedia/commons/4/4e/Docker_%28container_engine%29_logo.svg
-id_wikidata:
-    - Q15206305
+wikidata_id: Q15206305
 category:
     - software
     - virtualization
