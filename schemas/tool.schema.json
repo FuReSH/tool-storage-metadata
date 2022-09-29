@@ -6,34 +6,46 @@
     "type": "object",
     "properties": {
         "name": {
-            "description": "The title of the digital tool.",
+            "description": "The title of the digital tool",
             "type": "string"
         },
         "acronym": {
             "description": "",
             "type": ["string"]
         },
-        "images": {
-            "description": "Links to logo in Wikidata Commons",
-            "type": "array",
-            "items": {
-                "type": "string",
-                "pattern": "^(https://upload.wikimedia.org/wikipedia/commons/).+",
-                "format": "uri"
-            }
+        "image": {
+            "description": "URL's of the logo in Wikimedia Commons",
+            "type": "object",
+            "patternProperties": {
+                "(svg|png|jpg|jpeg|tiff)": {
+                    "type": "string",
+                    "pattern": "^(https://upload.wikimedia.org/wikipedia/commons/).+\\.(svg|png|jpg|jpeg|tiff)$",
+                    "format": "uri"
+                }                
+            },
+            "additionalProperties": false           
         },
         "wikidataId": {
-            "description": "Unique identifier in Wikidata. Starts always with prefix Q",
+            "description": "Unique Wikidata identifier. Starts always with prefix Q",
             "type": "string",
             "pattern": "^Q[0-9]+"
         },
-        "categories": {
+        "category": {
             "description": "Our tool set kit",
             "type": "array",
             "items": {
-                "type": "string"
-            }
+                "type": "string",
+                "enum": [
+                    "software", 
+                    "format", 
+                    "programming language", 
+                    "concept",
+                    "method",
+                    "interface",
+                    "library"
+                ]
+            }             
         }        
     },
-    "required": [ "name", "wikidataId", "categories" ]
+    "required": [ "name", "wikidataId", "category" ]
 }
