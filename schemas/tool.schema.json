@@ -47,5 +47,6 @@
             }             
         }        
     },
+    "additionalProperties": false,
     "required": [ "name", "wikidataId", "category" ]
 }
