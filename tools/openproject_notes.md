@@ -24,6 +24,15 @@ Die HU stellt die folgenden Typen bereit, die aber zunächst nichts weiter sind 
 
 Zusätzlich können Typen unabhängig vom Namen als Meilensteine definiert werden
 
+### Einschränkungen
+
+- Milestones können keine Kinder haben
+- Tasks können keine Tasks beinhalten
+
 ## Benutzerdefinierte Felder
 
 Es gibt benutzerdefinierte Felder, allerdings scheinen diese von der HU definiert zu sein. Eines der wenigen dieser Felder ergänzt eine vorhandene Funktionalität: `Zugewiesen an Personen` erweitert das Feld `Zugewiesen an` dahingehend, dass mehrere Personen ausgewählt werden können.
+
+# Interface
+
+- die hierarchische Baumstruktur ist verwirrend, da nicht immer alle Kinder angezeigt werden
