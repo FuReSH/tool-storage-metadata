@@ -9,6 +9,10 @@ ORCID: orcid.org/0000-0002-5739-8094
 [OpenProject](https://www.openproject.org/) ist eine offene Projektmanagementsoftware, die sowohl traditionelles (?) als auch agiles Projektmanagement unterstützt. Die HU betreibt eine [OpenProject Instanz](https://hu-berlin.openproject.com/)
 
 # Themen
+## Arbeitspakete und Boards
+
+- Wie hängen Arbeitspakete und Karten auf Boards zusammen?
+
 ## Arbeitspakete
 
 Arbeitspakete sind die Grundeinheit von OpenProject. Es gibt verschiedene [Typen](https://www.openproject.org/docs/user-guide/projects/project-settings/work-package-types/) mit unterschiedlichen Attributen, die alle in den Einstellungen für jedes einzelne Projekt ausgewählt werden können. Allerdings scheint es so, dass wir keine neuen Typen kreieren oder bestehende Typen verändern können.

@@ -13,6 +13,8 @@ suppress-bibliography: false
 markdown: pandoc
 tags:
     - FuReSH
+    - messenger
+    - social media
 ---
 
 - Element ist ein Frontend für das Matrix-Netzwerk und bietet verschlüsselte Einzel- und Gruppenchats. 
