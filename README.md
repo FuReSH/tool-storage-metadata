@@ -18,10 +18,11 @@ Der Begriff des Werkzeuges ist hier so weit wie möglich gefasst und umfasst Met
 
 # Ordnerstruktur
 
-- `Blackboxes/`: Ordner für von uns gepackte / vorbereitete Blackboxes. Für jede Blackbox gibt es 
+- `blackboxes/`: Ordner für von uns gepackte / vorbereitete Blackboxes. Für jede Blackbox gibt es 
     + eine YAML Datei (`blackbox.yml`) und 
     + eine visuelle Übersicht über den Inhalt und wie er zusammengehört (`blackbox_schema.jpg`). 
-- `Werkzeuge/`
+- `schemas/`: Ordner für JSON Schemata zur Validierung der YAML Dateien
+- `tools/`: Ordner für die einzelnen Werkzeuge
 
 # Werkzeuge
 
@@ -35,7 +36,7 @@ Jedes Werkzeug wird durch eine Setkarte dargestellt.
 
 Jede Setkarte enthält die folgenden Informationen:
 
-- Name
+- Name und Auflösung (im Fall von Abkürzungen)
 - Icon: kann über Wikidata oder TAPoR gefunden werden.
 - QR Code: verweist auf eine feste URI; erlaubt das Ergebnis mit dem Handy zu scannen und weiterzuverarbeiten
 - ID(s)
@@ -44,7 +45,14 @@ Jede Setkarte enthält die folgenden Informationen:
     + TAPor
 - Kategorien
     + gemäß TaDiRAH?
-    + unsere?
+    + unsere:
+        * "software"
+        * "format"
+        * "programming language" / "language"
+        * "concept"
+        * "method"
+        * "interface"
+        * "library"
 - Kurbeschreibung: kann von Wikidata oder/und TAPoR übernommen werden. Es besteht die Möglichkeit darüber Setkarten in verschiedenen Sprachen zu erzeugen
 - Literatur: aus Zotero übernommen
 - Weiterführende Links
