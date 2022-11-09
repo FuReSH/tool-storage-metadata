@@ -59,6 +59,10 @@ languages:
   expansion: YAML Ain’t Markup Language
   category: serialization
   wikidata: https://www.wikidata.org/wiki/Q281876
+- name: CSS
+  expansion: Cascading Style Sheets
+  category: serialization
+  wikidata: https://www.wikidata.org/wiki/Q46441
 
 software:
 - name: oXygen
