@@ -50,11 +50,11 @@ Der Kern unserer Infrastruktur sind YAML Dateien. Da YAML ein Superset von JSON 
 
 In Sublime Text stellt das Package [SublimeLinter](http://www.sublimelinter.com) eine Plug-in Infrastruktur für Linter zur Verfügung. Diese müssen aber für alle Sprachen einzelen installiert werden.
 
-Für YAML gibt es das Package [SublimeLinter-contrib-yaml-lint](https://packagecontrol.io/packages/SublimeLinter-contrib-yaml-lint), das ein Interface zu dem Ruby gem [yaml-lint](https://github.com/Pryz/yaml-lint) bereitstellt. Letzteres kann mit `gem install yaml-lint` installiert werden. Allerdings biete yaml-lint keine Validierung mit JSON schemas
+Für YAML gibt es das Package [SublimeLinter-contrib-yamllint](https://github.com/thomasmeeus/SublimeLinter-contrib-yamllint), das ein Interface zu der Python library [yamllint]() bereitstellt. Letzteres kann mit `pip install yamllint` installiert werden. Allerdings biete yamllint keine Validierung mit JSON schemas
 
 ## VSCode
 
-In VSCode gibt es eine [YAML] Extension
+In VSCode gibt es eine [YAML Extension](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml), die die notwendige Funktionalität bietet
 
 # Werkzeuge
 
