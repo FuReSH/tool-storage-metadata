@@ -2,13 +2,18 @@
     "$schema": "https://json-schema.org/draft/2020-12/schema",
     "$id": "https://github.com/FuReSH/Werkzeugregal/schemas/tool.schema.json",
     "title": "Tool",
-    "description": "A digital tool used for research in the humanities",
+    "description": "A schema to rudimentary describe a digital tool used for research in the humanities",
     "type": "object",
     "properties": {
+        // problem: entities can have multiple names and in multiple languages
+        // proposal:
+        //  - allow multiple names
+        //  - each with a `lang` child, which should follow the BCP-47 standard
         "name": {
             "description": "The title of the digital tool",
-            "type": "string"
+            "type": ["string"]
         },
+        // problem: acronyms need expansions
         "acronym": {
             "description": "",
             "type": ["string"]

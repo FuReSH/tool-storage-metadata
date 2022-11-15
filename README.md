@@ -18,6 +18,18 @@ Der Begriff des Werkzeuges ist hier so weit wie möglich gefasst und umfasst Met
 
 # To do
 
+- Schemas
+    - [ ] Das Schema erscheint mir (TG) bei den Datentypen zu strikt zu sein, so würde YAML eigentlich String oder Arrays zulassen und Strings einfach als Arrays mit einem Eintrag ansehen. Mit dem Schema ist dies aber nicht zulässig.
+    - [ ] Wie ist "Name" zu verstehen?
+        + Als kanonischer Identifier in unserem System?
+            * dann braucht es einen weiteres Feld für potentiell plurale Bezeichnungen einer Sache
+            * Ist z.B. eine "IDE" als `name: IDE` der `name: Integrated Development Environment` zu beschreiben?
+        + als eine mögliche Bezeichnung der beschriebenen Sache?
+            * das ließe sich dann besser automatisiert von Wikidata und in mehreren Sprachen abgreifen
+        - [ ] Vorschläge
+            - [ ] allow multiple names
+                - [ ] each with a `lang` child, which should follow the BCP-47 standard
+
 - Dokumentation
     - [ ] Kurze Beschreibung der Einrichtung von VSCode etc., damit YAML Dateien mit dem JSON Schema validiert werden
     - [ ] Beschreibung des Workflows für das Anlegen neuer Werkzeuge
@@ -46,7 +58,8 @@ In VSCode gibt es eine [YAML] Extension
 
 # Werkzeuge
 
-Dabei gibt es pro Werkzeug eine YAML Datei. Diese wird über ein [JSON Schema](schemas/tool.schema.json) validiert und muss neben einem Werkzeugnamen  eine Wikidata ID enthalten und mit mindestens einer unserer lokalen Kategorie kategorisiert sein. Daneben kann sie   Kurzbeschreibung, weiterführende Links, Links zu Icons etc. enthalten. Dafür wird es ein template geben. Um das Auflösen von URLs zu erleichtern, sind die Dateinamen einfach `[WERKZEUG].yml` also z.B. `docker.yml`. Weitere Informationen bzw. andere Arten von Informationen zu Werkzeugen werden in Markdown-Dateien (`.md`) mit funktionalen Zusätzen zum Dateinamen festgehalten, wie z.B. `_tutorial`. Entwürfe werden mit dem Zusatz `_draft` versehen.
+Dabei gibt es pro Werkzeug eine YAML Datei. Diese wird über ein [JSON Schema](schemas/tool.schema.json) validiert und muss neben einem Werkzeugnamen  eine Wikidata ID enthalten und mit mindestens einer unserer lokalen Kategorie kategorisiert sein. Daneben kann sie   Kurzbeschreibung, weiterführende Links, Links zu Icons etc. enthalten. Dafür wird es ein template geben. Um das Auflösen von URLs zu erleichtern, sind die Dateinamen einfach `[WERKZEUG].yml` also z.B. `docker.yml`. Dateinamen werden grundsäztlich kleingeschrieben und Lehrzeichen durch Bindestriche ersetzt.
+Weitere Informationen bzw. andere Arten von Informationen zu Werkzeugen werden in Markdown-Dateien (`.md`) mit funktionalen Zusätzen zum Dateinamen festgehalten, wie z.B. `_tutorial`. Entwürfe werden mit dem Zusatz `_draft` versehen.
 
 ## YAML
 
