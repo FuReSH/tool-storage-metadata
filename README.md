@@ -4,7 +4,7 @@ subtitle: ""
 author: 
     - Till Grallert
     - Sophie Eckenstaler
-date: 2022-08-08
+date: 2022-11-15
 ORCID: orcid.org/0000-0002-5739-8094
 tags:
     - tools
@@ -16,6 +16,12 @@ Dieser Ordner enthält die Daten zu unserem metaphorischen Werkzeugregal. Dahint
 
 Der Begriff des Werkzeuges ist hier so weit wie möglich gefasst und umfasst Methoden, Konzepte, Software, Sprachen, Hardware etc.
 
+# To do
+
+- Dokumentation
+    - [ ] Kurze Beschreibung der Einrichtung von VSCode etc., damit YAML Dateien mit dem JSON Schema validiert werden
+    - [ ] Beschreibung des Workflows für das Anlegen neuer Werkzeuge
+
 # Ordnerstruktur
 
 - `blackboxes/`: Ordner für von uns gepackte / vorbereitete Blackboxes. Für jede Blackbox gibt es 
@@ -24,9 +30,36 @@ Der Begriff des Werkzeuges ist hier so weit wie möglich gefasst und umfasst Met
 - `schemas/`: Ordner für JSON Schemata zur Validierung der YAML Dateien
 - `tools/`: Ordner für die einzelnen Werkzeuge
 
+# Set-up für dieses Repo
+
+Der Kern unserer Infrastruktur sind YAML Dateien. Da YAML ein Superset von JSON ist, lassen sich YAML Dateien mit JSON schemas validieren. Dafür muss in der Software unserer Wahl ein Linter eingerichtet werden.
+
+## SublimeText
+
+In Sublime Text stellt das Package [SublimeLinter](http://www.sublimelinter.com) eine Plug-in Infrastruktur für Linter zur Verfügung. Diese müssen aber für alle Sprachen einzelen installiert werden.
+
+Für YAML gibt es das Package [SublimeLinter-contrib-yaml-lint](https://packagecontrol.io/packages/SublimeLinter-contrib-yaml-lint), das ein Interface zu dem Ruby gem [yaml-lint](https://github.com/Pryz/yaml-lint) bereitstellt. Letzteres kann mit `gem install yaml-lint` installiert werden. Allerdings biete yaml-lint keine Validierung mit JSON schemas
+
+## VSCode
+
+In VSCode gibt es eine [YAML] Extension
+
 # Werkzeuge
 
-Dabei gibt es pro Werkzeug eine Datei. Diese soll eine Kurzbeschreibung und weiterführende Links enthalten. Dafür wird es ein template geben. Um das Auflösen von URLs zu erleichtern, sind die Dateinamen einfach `[WERKZEUG].md` also z.B. `docker.md`. Weitere Informationen bzw. andere Arten von Informationen zu Werkzeugen werden mit funktionalen Zusätzen zum Dateinamen markiert, wie z.B. `_tutorial`. Entwürfe werden mit dem Zusatz `_draft` versehen.
+Dabei gibt es pro Werkzeug eine YAML Datei. Diese wird über ein [JSON Schema](schemas/tool.schema.json) validiert und muss neben einem Werkzeugnamen  eine Wikidata ID enthalten und mit mindestens einer unserer lokalen Kategorie kategorisiert sein. Daneben kann sie   Kurzbeschreibung, weiterführende Links, Links zu Icons etc. enthalten. Dafür wird es ein template geben. Um das Auflösen von URLs zu erleichtern, sind die Dateinamen einfach `[WERKZEUG].yml` also z.B. `docker.yml`. Weitere Informationen bzw. andere Arten von Informationen zu Werkzeugen werden in Markdown-Dateien (`.md`) mit funktionalen Zusätzen zum Dateinamen festgehalten, wie z.B. `_tutorial`. Entwürfe werden mit dem Zusatz `_draft` versehen.
+
+## YAML
+
+Beispiel einer minimalen YAML Datei
+
+```yml
+---
+# yaml-language-server: $schema=../schemas/tool.schema.json
+name: Docker
+wikidataId: Q15206305
+category:
+  - software
+```
 
 ## Setkarten
 
@@ -66,7 +99,7 @@ Blackboxes können ähnliche Setkarten bekommen
 
 ## Erstellung der Setkarten
 
-Wir stellen uns einen mehrheitlich automatisierten Prozess der Erstellung der Setkarten auf der Basis der Informationen in unserer *tool registry* (eine große YAML Datei) vor.
+Wir stellen uns einen mehrheitlich automatisierten Prozess der Erstellung der Setkarten auf der Basis der Informationen in unserer *tool registry* vor, dabei wird jedes Werkzeug mit einer einzelnen YAML Datei beschrieben.
 
 ![Schematische Darstellung der Infrastruktur hinter den Setkarten](assets/concept_set-card-infrastructure.jpg) 
 
