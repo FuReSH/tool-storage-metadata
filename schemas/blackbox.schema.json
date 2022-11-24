@@ -10,11 +10,37 @@
           "type": "string",
           "pattern": "^[a-z]{1}[a-z-]+[a-z](_blackbox)$"
       },
-      "input": {},
-      "processing": {},
-      "output": {},
-      "category": { "$ref": "/schemas/category-list" }        
-  },
+      "input": {
+        "type": "array",
+        "items": {
+            "type": "object",
+            "properties":  {
+                "tool": { "$ref": "/schemas/tool.schema.json#/$defs/name" },
+                "category": { "$ref": "/schemas/category-list" }
+            }
+        }
+      },
+      "processing": {
+        "type": "array",
+        "items": {
+            "type": "object",
+            "properties":  {
+                "tool": { "$ref": "/schemas/tool.schema.json#/$defs/name" },
+                "category": { "$ref": "/schemas/category-list" }
+            }
+        }
+      },
+      "output": {
+        "type": "array",
+        "items": {
+            "type": "object",
+            "properties":  {
+                "tool": { "$ref": "/schemas/tool.schema.json#/$defs/name" },
+                "category": { "$ref": "/schemas/category-list" }
+            }
+        }
+      }
+    },
   "additionalProperties": false,
   "required": [ "name", "input", "processing", "output" ]
   }

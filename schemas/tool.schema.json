@@ -37,18 +37,18 @@
           "$id": "/schemas/category-list",
           "$schema": "https://json-schema.org/draft/2020-12/schema",
           "$comment": "These categories are our tool boxes. Can be used of all other schemas.",   
-          "description": "A subschema that holds categories tool classification",
+          "description": "A subschema that holds categories for tool classification. Expects Wikidata identifiers.",
             "type": "array",
             "items": {
                 "type": "string",
                 "enum": [
-                    "software", 
-                    "format", 
-                    "programming language", 
+                    "Q95001953", 
+                    "Q2085518", 
+                    "Q9143", 
                     "concept",
-                    "method",
-                    "interface",
-                    "library"
+                    "Q1438073",
+                    "Q47146",
+                    "Q188860"
                 ]
             }
         }
