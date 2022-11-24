@@ -7,16 +7,15 @@
     "properties": {
       "name": {
           "description": "The unique 'speaking' id of the blackbox that is related to a tool. Always lowercase and hyphenated and must match filename.",
-          "type": "string",
-          "pattern": "^[a-z]{1}[a-z-]+[a-z](_blackbox)$"
+          "$ref": "/schemas/tool.schema.json#/$defs/name"
       },
+      "category": { "$ref": "/schemas/category-list", "$comment": "Woher wollen wir die Kategorien für die Blackboxes beziehen? Auch die selben wie für Tools?" },
       "input": {
         "type": "array",
         "items": {
             "type": "object",
             "properties":  {
-                "tool": { "$ref": "/schemas/tool.schema.json#/$defs/name" },
-                "category": { "$ref": "/schemas/category-list" }
+                "tool": { "$ref": "/schemas/tool.schema.json#/$defs/name" }
             }
         }
       },
@@ -25,8 +24,7 @@
         "items": {
             "type": "object",
             "properties":  {
-                "tool": { "$ref": "/schemas/tool.schema.json#/$defs/name" },
-                "category": { "$ref": "/schemas/category-list" }
+                "tool": { "$ref": "/schemas/tool.schema.json#/$defs/name" }
             }
         }
       },
@@ -35,8 +33,7 @@
         "items": {
             "type": "object",
             "properties":  {
-                "tool": { "$ref": "/schemas/tool.schema.json#/$defs/name" },
-                "category": { "$ref": "/schemas/category-list" }
+                "tool": { "$ref": "/schemas/tool.schema.json#/$defs/name" }
             }
         }
       }
