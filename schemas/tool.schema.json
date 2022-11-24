@@ -5,18 +5,10 @@
     "description": "A schema to rudimentary describe a digital tool used for research in the humanities",
     "type": "object",
     "properties": {
-        // problem: entities can have multiple names and in multiple languages
-        // proposal:
-        //  - allow multiple names
-        //  - each with a `lang` child, which should follow the BCP-47 standard
         "name": {
-            "description": "The title of the digital tool",
-            "type": ["string"]
-        },
-        // problem: acronyms need expansions
-        "acronym": {
-            "description": "",
-            "type": ["string"]
+            "description": "The unique 'speaking' id of the tool. Always lowercase and hyphenated and must match filename.",
+            "type": "string",
+            "pattern": "^[a-z]{1}[a-z-]+[a-z]$"
         },
         "image": {
             "description": "URL's of the logo in Wikimedia Commons",

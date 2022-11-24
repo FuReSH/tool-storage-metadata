@@ -20,7 +20,7 @@ Der Begriff des Werkzeuges ist hier so weit wie möglich gefasst und umfasst Met
 
 - Schemas
     - [ ] Das Schema erscheint mir (TG) bei den Datentypen zu strikt zu sein, so würde YAML eigentlich String oder Arrays zulassen und Strings einfach als Arrays mit einem Eintrag ansehen. Mit dem Schema ist dies aber nicht zulässig.
-    - [ ] Wie ist "Name" zu verstehen?
+    - [x] Wie ist "Name" zu verstehen?
         + Als kanonischer Identifier in unserem System?
             * dann braucht es einen weiteres Feld für potentiell plurale Bezeichnungen einer Sache
             * Ist z.B. eine "IDE" als `name: IDE` der `name: Integrated Development Environment` zu beschreiben?
@@ -29,9 +29,10 @@ Der Begriff des Werkzeuges ist hier so weit wie möglich gefasst und umfasst Met
         - [ ] Vorschläge
             - [ ] allow multiple names
                 - [ ] each with a `lang` child, which should follow the BCP-47 standard
+        - **Solved:** Der key "name" ist die "sprechende" Id unseres tools, die auch dem Dateinamen entspricht. So kann man später bei einer Formulareingabe einfach nach Duplikaten prüfen und die Datei im Repo anlegen.
 
 - Dokumentation
-    - [ ] Kurze Beschreibung der Einrichtung von VSCode etc., damit YAML Dateien mit dem JSON Schema validiert werden
+    - [x] Kurze Beschreibung der Einrichtung von VSCode etc., damit YAML Dateien mit dem JSON Schema validiert werden
     - [ ] Beschreibung des Workflows für das Anlegen neuer Werkzeuge
 
 # Ordnerstruktur
@@ -54,7 +55,7 @@ Für YAML gibt es das Package [SublimeLinter-contrib-yamllint](https://github.co
 
 ## VSCode
 
-In VSCode gibt es eine [YAML Extension](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml), die die notwendige Funktionalität bietet
+In VSCode gibt es eine [YAML Extension](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml), die die notwendige Funktionalität bietet. Die zur Einrichtung auch Tutorial: [How to create your own auto-completion for JSON and YAML files on VS Code with the help of JSON Schema](https://dev.to/brpaz/how-to-create-your-own-auto-completion-for-json-and-yaml-files-on-vs-code-with-the-help-of-json-schema-k1i)
 
 # Werkzeuge
 
