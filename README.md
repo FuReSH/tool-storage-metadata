@@ -55,7 +55,7 @@ Für YAML gibt es das Package [SublimeLinter-contrib-yamllint](https://github.co
 
 ## VSCode
 
-In VSCode gibt es eine [YAML Extension](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml), die die notwendige Funktionalität bietet. Die zur Einrichtung auch Tutorial: [How to create your own auto-completion for JSON and YAML files on VS Code with the help of JSON Schema](https://dev.to/brpaz/how-to-create-your-own-auto-completion-for-json-and-yaml-files-on-vs-code-with-the-help-of-json-schema-k1i)
+In VSCode gibt es eine [YAML Extension](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml), die die notwendige Funktionalität bietet. Siehe zur Einrichtung auch die Dokumentation auf GitHub: [vscode-yaml](https://github.com/redhat-developer/vscode-yaml)
 
 # Werkzeuge
 

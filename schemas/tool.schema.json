@@ -8,7 +8,7 @@
         "name": {
             "description": "The unique 'speaking' id of the tool. Always lowercase and hyphenated and must match filename.",
             "type": "string",
-            "pattern": "^[a-z]{1}[a-z-]+[a-z]$"
+            "pattern": "^[a-z]{1}[a-z-]+[a-z](_tool)$"
         },
         "image": {
             "description": "URL's of the logo in Wikimedia Commons",
@@ -27,8 +27,17 @@
             "type": "string",
             "pattern": "^Q[0-9]+"
         },
-        "category": {
-            "description": "Our tool set kit",
+        "category": { "$ref": "/schemas/category-list" }       
+    },
+    "additionalProperties": false,
+    "required": [ "name", "wikidataId", "category" ],
+
+    "$defs": {
+        "category-list": {
+          "$id": "/schemas/category-list",
+          "$schema": "https://json-schema.org/draft/2020-12/schema",
+          "$comment": "These categories are our tool boxes. Can be used of all other schemas.",   
+          "description": "A subschema that holds categories tool classification",
             "type": "array",
             "items": {
                 "type": "string",
@@ -41,9 +50,7 @@
                     "interface",
                     "library"
                 ]
-            }             
-        }        
-    },
-    "additionalProperties": false,
-    "required": [ "name", "wikidataId", "category" ]
+            }
+        }
+    }
 }

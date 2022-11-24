@@ -2,6 +2,19 @@
     "$schema": "https://json-schema.org/draft/2020-12/schema",
     "$id": "https://github.com/FuReSH/Werkzeugregal/schemas/blackbox.schema.json",
     "title": "Blackbox",
-    "description": "Any digital tool having input, processing step and output",
-    "type": "object"
+    "description": "A schema to rudimentary describe a digital tool as a blackbox having input, processing steps and output",
+    "type": "object",
+    "properties": {
+      "name": {
+          "description": "The unique 'speaking' id of the blackbox that is related to a tool. Always lowercase and hyphenated and must match filename.",
+          "type": "string",
+          "pattern": "^[a-z]{1}[a-z-]+[a-z](_blackbox)$"
+      },
+      "input": {},
+      "processing": {},
+      "output": {},
+      "category": { "$ref": "/schemas/category-list" }        
+  },
+  "additionalProperties": false,
+  "required": [ "name", "input", "processing", "output" ]
   }
