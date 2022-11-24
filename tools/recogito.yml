@@ -1,0 +1,6 @@
+---
+# yaml-language-server: $schema=../schemas/tool.schema.json
+name: recogito
+wikidataId: Q74692524
+category:
+  - software
