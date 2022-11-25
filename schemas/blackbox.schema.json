@@ -7,9 +7,21 @@
     "properties": {
       "name": {
           "description": "The unique 'speaking' id of the blackbox that is related to a tool. Always lowercase and hyphenated and must match filename.",
-          "$ref": "/schemas/tool.schema.json#/$defs/name"
+          "type": "string",
+          "pattern": "^[a-z]{1}[a-z-]+(_blackbox)$"
       },
-      "category": { "$ref": "/schemas/category-list", "$comment": "Woher wollen wir die Kategorien für die Blackboxes beziehen? Auch die selben wie für Tools?" },
+      "tadirah": { 
+        "desciption": "",
+        "type": "array",
+        "uniqueItems": true,
+        "minItems": 1,
+        "items": {
+          "type": "string",
+          "pattern": "^(https://vocabs.dariah.eu/tadirah/)([a-zA-Z]+)$",
+          "format": "uri"
+        },
+        "additionalProperties": false
+       },
       "input": {
         "type": "array",
         "items": {
