@@ -1,6 +1,6 @@
 {
     "$schema": "https://json-schema.org/draft/2020-12/schema",
-    "$id": "https://github.com/FuReSH/Werkzeugregal/schemas/tool.schema.json",
+    "$id": "https://raw.githubusercontent.com/FuReSH/tool-storage-metadata/main/schemas/tool.schema.json",
     "title": "Tool",
     "description": "A schema to rudimentary describe a digital tool used for research in the humanities",
     "type": "object",
@@ -27,18 +27,19 @@
             "type": "string",
             "pattern": "^Q[0-9]+"
         },
-        "category": { "$ref": "/schemas/category-list" }       
+        "categories": { "$ref": "#/$defs/category-data" },
+        "literature": { "$ref": "#/$defs/literature-data" },
+        "set-ups": { "$ref": "#/$defs/set-up-data" }       
     },
     "additionalProperties": false,
-    "required": [ "name", "wikidataId", "category" ],
+    "required": [ "name", "wikidataId", "categories" ],
 
     "$defs": {
-        "category-list": {
-          "$id": "/schemas/category-list",
-          "$schema": "https://json-schema.org/draft/2020-12/schema",
-          "$comment": "These categories are our tool boxes. Can be used of all other schemas.",   
-          "description": "A subschema that holds categories for tool classification. Expects Wikidata identifiers.",
+        "category-data": {
+          "description": "These categories are our tool boxes which are used for classification. Expects Wikidata identifiers.",
             "type": "array",
+            "uniqueItems": true,
+            "minItems": 1,
             "items": {
                 "type": "string",
                 "enum": [
@@ -50,6 +51,43 @@
                     "Q47146",
                     "Q188860"
                 ]
+            }
+        },
+        "literature-data": {
+            "description": "",
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+                "type": "object",
+                "properties": {
+                    "zotero-namespace": {
+                        "type": "string",
+                        "pattern": "explains_tool|uses_tool|discusses_tool"
+                    },
+                    "zotero-key": {
+                        "type": "array",
+                        "uniqueItems": true,
+                        "items": {
+                            "type": "string",
+                            "pattern": "[A-Z0-9]+"
+                        }
+                    }
+                },
+                "additionalProperties": false,
+                "required": [ "zotero-namespace", "zotero-key" ]
+            }
+        },
+        "set-up-data": {
+            "desciption": "",
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+                "type": "object",
+                "properties": {
+
+                },
+                "additionalProperties": false,
+                "required": [ "", "" ]
             }
         }
     }

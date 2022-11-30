@@ -1,6 +1,0 @@
----
-# yaml-language-server: $schema=../schemas/blackbox.schema.json
-name: web-scraping_blackbox
-category:
-  - software
-  - format

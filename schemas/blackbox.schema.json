@@ -1,6 +1,6 @@
 {
     "$schema": "https://json-schema.org/draft/2020-12/schema",
-    "$id": "https://github.com/FuReSH/Werkzeugregal/schemas/blackbox.schema.json",
+    "$id": "https://raw.githubusercontent.com/FuReSH/tool-storage-metadata/main/schemas/blackbox.schema.json",
     "title": "Blackbox",
     "description": "A schema to rudimentary describe a digital tool as a blackbox having input, processing steps and output",
     "type": "object",
@@ -10,7 +10,7 @@
           "type": "string",
           "pattern": "^[a-z]{1}[a-z-]+(_blackbox)$"
       },
-      "tadirah": { 
+      "tadirah-broader-concept": { 
         "desciption": "",
         "type": "array",
         "uniqueItems": true,
@@ -22,34 +22,22 @@
         },
         "additionalProperties": false
        },
-      "input": {
-        "type": "array",
-        "items": {
-            "type": "object",
-            "properties":  {
-                "tool": { "$ref": "/schemas/tool.schema.json#/$defs/name" }
-            }
-        }
-      },
-      "processing": {
-        "type": "array",
-        "items": {
-            "type": "object",
-            "properties":  {
-                "tool": { "$ref": "/schemas/tool.schema.json#/$defs/name" }
-            }
-        }
-      },
-      "output": {
-        "type": "array",
-        "items": {
-            "type": "object",
-            "properties":  {
-                "tool": { "$ref": "/schemas/tool.schema.json#/$defs/name" }
-            }
-        }
-      }
+      "input": { "$ref": "#/$defs/tools" },
+      "processing": { "$ref": "#/$defs/tools" },
+      "output": { "$ref": "#/$defs/tools" }
     },
   "additionalProperties": false,
-  "required": [ "name", "input", "processing", "output" ]
+  "required": [ "name", "input", "processing", "output" ],
+
+  "$defs": {
+    "tools": {
+      "description": "",
+        "type": "array",
+        "uniqueItems": true,
+        "minItems": 1,
+        "items": {
+          "$ref": "https://raw.githubusercontent.com/FuReSH/tool-storage-metadata/main/schemas/tool.schema.json#/properties/name"
+        }
+    }
   }
+}

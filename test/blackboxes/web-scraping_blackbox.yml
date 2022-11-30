@@ -1,0 +1,11 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/FuReSH/tool-storage-metadata/main/schemas/blackbox.schema.json
+name: web-scraping_blackbox
+tadirah-broader-concept:
+  - https://vocabs.dariah.eu/tadirah/archiving
+  - https://vocabs.dariah.eu/tadirah/gathering
+input:
+ - tool: docker_tool
+processing:
+  - tool: docker_tool
+output:
+  - tool: docker_tool
