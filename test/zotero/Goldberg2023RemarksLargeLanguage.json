@@ -1,0 +1,77 @@
+[
+    {
+        "key": "625DYLG9",
+        "version": 1642,
+        "library": {
+            "type": "group",
+            "id": 4598521,
+            "name": "FuReSH",
+            "links": {
+                "alternate": {
+                    "href": "https://www.zotero.org/groups/4598521",
+                    "type": "text/html"
+                }
+            }
+        },
+        "links": {
+            "self": {
+                "href": "https://api.zotero.org/groups/4598521/items/625DYLG9",
+                "type": "application/json"
+            },
+            "alternate": {
+                "href": "https://www.zotero.org/groups/4598521/items/625DYLG9",
+                "type": "text/html"
+            }
+        },
+        "meta": {
+            "createdByUser": {
+                "id": 2028652,
+                "username": "till.grallert",
+                "name": "Till Grallert",
+                "links": {
+                    "alternate": {
+                        "href": "https://www.zotero.org/till.grallert",
+                        "type": "text/html"
+                    }
+                }
+            },
+            "creatorSummary": "Goldberg",
+            "parsedDate": "2023-01",
+            "numChildren": 0
+        },
+        "data": {
+            "key": "625DYLG9",
+            "version": 1642,
+            "itemType": "webpage",
+            "title": "Some remarks on Large Language Models",
+            "creators": [
+                {
+                    "creatorType": "author",
+                    "firstName": "Yoav",
+                    "lastName": "Goldberg"
+                }
+            ],
+            "abstractNote": "GitHub Gist: instantly share code, notes, and snippets.",
+            "websiteTitle": "Gist",
+            "websiteType": "",
+            "date": "2023-01",
+            "shortTitle": "",
+            "url": "https://gist.github.com/yoavg/59d174608e92e845c8994ac2e234c8a9",
+            "accessDate": "2023-01-04T11:52:50Z",
+            "language": "en",
+            "rights": "",
+            "extra": "Citation Key: Goldberg2023RemarksLargeLanguage",
+            "tags": [
+                {
+                    "tag": "tool: chatGPT"
+                }
+            ],
+            "collections": [
+                "A82YHKK8"
+            ],
+            "relations": {},
+            "dateAdded": "2023-01-04T11:52:50Z",
+            "dateModified": "2023-01-06T22:12:33Z"
+        }
+    }
+]
