@@ -22,16 +22,15 @@
         },
         "additionalProperties": false
        },
-      "input": { "$ref": "#/$defs/tools" },
-      "processing": { "$ref": "#/$defs/tools" },
-      "output": { "$ref": "#/$defs/tools" }
+      "input": { "description": "", "$ref": "#/$defs/tools" },
+      "processing": { "description": "", "$ref": "#/$defs/tools" },
+      "output": { "description": "", "$ref": "#/$defs/tools" }
     },
   "additionalProperties": false,
   "required": [ "name", "input", "processing", "output" ],
 
   "$defs": {
     "tools": {
-      "description": "",
         "type": "array",
         "uniqueItems": true,
         "minItems": 1,

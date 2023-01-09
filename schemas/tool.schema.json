@@ -32,12 +32,6 @@
             "type": "string",
             "pattern": "^Q[0-9]+"
         },
-        "bibliography": { 
-            "desciption": "",
-            "type": "string",
-            "pattern": "^(https://raw.githubusercontent.com/FuReSH/tool-storage-metadata/main/bibliography/)[a-z]{1}[a-z-]+(\\.csl\\.json)$",
-            "format": "uri"
-         },
          "qr-code": {
             "description": "",
             "type": "array",
