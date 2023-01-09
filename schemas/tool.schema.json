@@ -8,28 +8,55 @@
         "name": {
             "description": "The unique 'speaking' id of the tool. Always lowercase and hyphenated and must match filename.",
             "type": "string",
-            "pattern": "^[a-z]{1}[a-z-]+(_tool)$"
+            "pattern": "^[a-z]{1}[a-z-]+(\\.tool)$"
         },
         "image": {
-            "description": "URL's of the logo in Wikimedia Commons",
-            "type": "object",
-            "patternProperties": {
-                "(svg|png|jpg|jpeg|tiff)": {
-                    "type": "string",
-                    "pattern": "^(https://upload.wikimedia.org/wikipedia/commons/).+\\.(svg|png|jpg|jpeg|tiff)$",
-                    "format": "uri"
-                }                
-            },
-            "additionalProperties": false           
+            "description": "URLs of the logo in Wikimedia Commons",
+            "type": "array",
+            "uniqueItems": true,
+            "minItems": 1,
+            "items": {
+                "type": "object",
+                "patternProperties": {
+                    "(svg|png|jpg|jpeg)": {
+                        "type": "string",
+                        "pattern": "^(https://upload.wikimedia.org/wikipedia/commons/).+\\.(svg|png|jpg|jpeg)$",
+                        "format": "uri"
+                    }                
+                },
+                "additionalProperties": false 
+            }                      
         },
-        "wikidataId": {
+        "wikidata-id": {
             "description": "Unique Wikidata identifier. Starts always with prefix Q",
             "type": "string",
             "pattern": "^Q[0-9]+"
         },
+        "bibliography": { 
+            "desciption": "",
+            "type": "string",
+            "pattern": "^(https://raw.githubusercontent.com/FuReSH/tool-storage-metadata/main/bibliography/)[a-z]{1}[a-z-]+(\\.csl\\.json)$",
+            "format": "uri"
+         },
+         "qr-code": {
+            "description": "",
+            "type": "array",
+            "uniqueItems": true,
+            "minItems": 1,
+            "items": {
+                "type": "object",
+                "patternProperties": {
+                    "(svg|png|jpg|jpeg)": {
+                        "type": "string",
+                        "pattern": "^(https://raw.githubusercontent.com/FuReSH/tool-storage-metadata/main/assets/qr-code/)[a-z]{1}[a-z-]+(\\.qr\\.(svg|png|jpg|jpeg))$",
+                        "format": "uri"
+                    }                 
+                },
+                "additionalProperties": false
+            }            
+         },
         "categories": { "$ref": "#/$defs/category-data" },
-        "literature": { "$ref": "#/$defs/literature-data" },
-        "set-ups": { "$ref": "#/$defs/set-up-data" }       
+        "set-up": { "$ref": "#/$defs/set-up-data" }       
     },
     "additionalProperties": false,
     "required": [ "name", "wikidataId", "categories" ],
@@ -46,48 +73,35 @@
                     "Q95001953", 
                     "Q2085518", 
                     "Q9143", 
-                    "concept",
+                    "Q151885",
                     "Q1438073",
                     "Q47146",
                     "Q188860"
                 ]
             }
         },
-        "literature-data": {
-            "description": "",
-            "type": "array",
-            "uniqueItems": true,
-            "items": {
-                "type": "object",
-                "properties": {
-                    "zotero-namespace": {
-                        "type": "string",
-                        "pattern": "explains_tool|uses_tool|discusses_tool"
-                    },
-                    "zotero-key": {
-                        "type": "array",
-                        "uniqueItems": true,
-                        "items": {
-                            "type": "string",
-                            "pattern": "[A-Z0-9]+"
-                        }
-                    }
-                },
-                "additionalProperties": false,
-                "required": [ "zotero-namespace", "zotero-key" ]
-            }
-        },
         "set-up-data": {
             "desciption": "",
             "type": "array",
             "uniqueItems": true,
+            "minItems": 1,
             "items": {
                 "type": "object",
                 "properties": {
+                    "set-up-type": {
+                        "type": "string",
+                        "enum": [
+                            "docker",
+                            "local"
+                        ]
+                    },
+                    "content": {
+                        
+                    }
 
                 },
                 "additionalProperties": false,
-                "required": [ "", "" ]
+                "required": [ "set-up-type", "content" ]
             }
         }
     }
