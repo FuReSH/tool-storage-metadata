@@ -1,0 +1,27 @@
+# This is a basic workflow to verify tool data
+
+name: Validate Tool YAMLs
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  workflow_dispatch:
+  
+jobs:
+  verify-yaml-validation:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Validate YAML
+        uses: thiagodnf/yaml-schema-checker@v0.0.8
+        with:
+          jsonSchemaFile: schemas/tool.schema.json
+          yamlFiles: |
+            test/tools/*.yml
+            tools/*.yml
+
+      # Runs a single command using the runners shell
+      - name: Run a one-line script
+        run: echo Finished!
