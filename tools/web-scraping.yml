@@ -1,6 +1,0 @@
----
-# yaml-language-server: $schema=../schemas/tool.schema.json
-name: Web scraping
-category: 
-  - method
-wikidataId: Q665452
