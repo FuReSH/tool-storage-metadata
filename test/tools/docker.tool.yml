@@ -1,8 +1,8 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/FuReSH/tool-storage-metadata/main/schemas/tool.schema.json
 name: docker.tool
 image:
-  svg: https://upload.wikimedia.org/wikipedia/commons/4/4e/Docker_%28container_engine%29_logo.svg
-wikidataId: Q15206305
+  - svg: https://upload.wikimedia.org/wikipedia/commons/4/4e/Docker_%28container_engine%29_logo.svg
+wikidata-id: Q15206305
 categories:
   - Q95001953
   - Q47146

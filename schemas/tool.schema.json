@@ -53,7 +53,7 @@
         "set-up": { "$ref": "#/$defs/set-up-data" }       
     },
     "additionalProperties": false,
-    "required": [ "name", "wikidataId", "categories" ],
+    "required": [ "name", "wikidata-id", "categories" ],
 
     "$defs": {
         "category-data": {
