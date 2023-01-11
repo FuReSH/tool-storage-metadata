@@ -1,0 +1,6 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/FuReSH/tool-storage-metadata/main/schemas/tool.schema.json
+---
+name: exiftool.tool
+wikidata-id: Q5420254
+categories:
+  - Q95001953
