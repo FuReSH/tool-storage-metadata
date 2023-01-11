@@ -1,6 +1,6 @@
-# This is a basic workflow to verify tool data
+# This is a basic workflow to verify yaml data for tools and blackboxes
 
-name: Validate Tool YAMLs
+name: Validate YAML data
 
 on:
   push:
@@ -10,18 +10,23 @@ on:
   workflow_dispatch:
   
 jobs:
-  verify-yaml-validation:
+  test-tool-validation:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-      - name: Validate YAML
+      - name: TEST Validate Tools
         uses: thiagodnf/yaml-schema-checker@v0.0.8
         with:
           jsonSchemaFile: schemas/tool.schema.json
           yamlFiles: |
             test/tools/*.yml
-            tools/*.yml
-
-      # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo Finished!
+  test-blackbox-validation:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: TEST Validate Blackboxes
+        uses: thiagodnf/yaml-schema-checker@v0.0.8
+        with:
+          jsonSchemaFile: schemas/blackbox.schema.json
+          yamlFiles: |
+            test/blackbox/*.yml
