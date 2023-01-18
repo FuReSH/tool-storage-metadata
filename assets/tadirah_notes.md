@@ -9,6 +9,7 @@ ORCID: orcid.org/0000-0002-5739-8094
 ---
 
 - webseite: <https://vocabs.dariah.eu/tadirah>
+- Wir haben das komplette Vokabular über die API/Endpoint als Turtle heruntergeladen und dann zu JSON-LD convertiert. Beide Dateien finden sich unter <https://github.com/FuReSH/tool-usage_digital-humanities/tree/main/data>.
 
 # SPARQL
 
