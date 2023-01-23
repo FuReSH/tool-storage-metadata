@@ -59,7 +59,7 @@ In VSCode gibt es eine [YAML Extension](https://marketplace.visualstudio.com/ite
 
 # Werkzeuge
 
-Dabei gibt es pro Werkzeug eine YAML Datei. Diese wird über ein [JSON Schema](schemas/tool.schema.json) validiert und muss neben einem Werkzeugnamen  eine Wikidata ID enthalten und mit mindestens einer unserer lokalen Kategorie kategorisiert sein. Daneben kann sie   Kurzbeschreibung, weiterführende Links, Links zu Icons etc. enthalten. Dafür wird es ein template geben. Um das Auflösen von URLs zu erleichtern, sind die Dateinamen einfach `[WERKZEUG].yml` also z.B. `docker.yml`. Dateinamen werden grundsäztlich kleingeschrieben und Lehrzeichen durch Bindestriche ersetzt.
+Dabei gibt es pro Werkzeug eine YAML Datei. Diese wird über ein [JSON Schema](schemas/tool.schema.json) validiert und muss neben einem Werkzeugnamen  eine Wikidata ID enthalten und mit mindestens einer unserer lokalen Kategorie kategorisiert sein. Daneben kann sie   Kurzbeschreibung, weiterführende Links, Links zu Icons etc. enthalten. Dafür wird es ein template geben. Um das Auflösen von URLs zu erleichtern, sind die Dateinamen einfach `[WERKZEUG].tool.yml` also z.B. `docker.tool.yml`. Dateinamen werden grundsäztlich kleingeschrieben und Lehrzeichen durch Bindestriche ersetzt.
 Weitere Informationen bzw. andere Arten von Informationen zu Werkzeugen werden in Markdown-Dateien (`.md`) mit funktionalen Zusätzen zum Dateinamen festgehalten, wie z.B. `_tutorial`. Entwürfe werden mit dem Zusatz `_draft` versehen.
 
 ## YAML
