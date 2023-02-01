@@ -10,9 +10,12 @@ on:
      #- 'blackboxes/**/*.yml'
   pull_request:
     branches: [ "main" ]
+    #paths:
+     #- 'tools/**/*.yml'
+     #- 'blackboxes/**/*.yml'
   
 jobs:
-  test-validation:
+  validation-test:
     runs-on: ubuntu-latest
     strategy:
       # You can use PyPy versions in python-version.
@@ -30,5 +33,7 @@ jobs:
         run: python -c "import sys; print(sys.version)"
       - name: Install check-jsonschema tool
         run: pip install check-jsonschema
-      - name: Test check-jsonschema tool
-        run: check-jsonschema --check-metaschema ${GITHUB_WORKSPACE}/schemas/blackbox.schema.json
+      - name: Validate tool
+        run: check-jsonschema --check-metaschema ${GITHUB_WORKSPACE}/schemas/blackbox.schema.json ${GITHUB_WORKSPACE}/tools/* 
+      - name: Validate blackbox
+        run: check-jsonschema --check-metaschema ${GITHUB_WORKSPACE}/schemas/blackbox.schema.json ${GITHUB_WORKSPACE}/blackboxes/*
