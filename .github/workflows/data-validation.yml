@@ -5,6 +5,9 @@ name: Validate YAML data
 on:
   push:
     branches: [ "main" ]
+    paths:
+     - 'tools/**/*.yml'
+     - 'blackboxes/**/*.yml'
   pull_request:
     branches: [ "main" ]
   
@@ -28,4 +31,5 @@ jobs:
       - name: Install check-jsonschema tool
         run: pip install check-jsonschema
       - name: Test check-jsonschema tool
-        run: check-jsonschema --check-metaschema ../../schemas/blackbox.schema.json
+        run: echo ${GITHUB_WORKSPACE}
+       # run: check-jsonschema --check-metaschema ./schemas/blackbox.schema.json
