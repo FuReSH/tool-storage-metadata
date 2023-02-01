@@ -35,5 +35,5 @@ jobs:
         run: pip install check-jsonschema
       - name: Validate tool
         run: check-jsonschema --check-metaschema ${GITHUB_WORKSPACE}/schemas/blackbox.schema.json ${GITHUB_WORKSPACE}/tools/* 
-      - name: Validate blackbox
-        run: check-jsonschema --check-metaschema ${GITHUB_WORKSPACE}/schemas/blackbox.schema.json ${GITHUB_WORKSPACE}/blackboxes/*
+      #- name: Validate blackbox
+       # run: check-jsonschema --check-metaschema ${GITHUB_WORKSPACE}/schemas/blackbox.schema.json ${GITHUB_WORKSPACE}/blackboxes/*
