@@ -17,7 +17,7 @@
         "minItems": 1,
         "items": {
           "type": "string",
-          "pattern": "^(https://vocabs.dariah.eu/tadirah/)([a-zA-Z]+)$",
+          "pattern": "^(https://vocabs\\.dariah\\.eu/tadirah/)([a-zA-Z]+)$",
           "format": "uri"
         },
         "additionalProperties": false

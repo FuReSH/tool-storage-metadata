@@ -20,7 +20,7 @@
                 "patternProperties": {
                     "(svg|png|jpg|jpeg)": {
                         "type": "string",
-                        "pattern": "^(https://upload.wikimedia.org/wikipedia/commons/).+\\.(svg|png|jpg|jpeg)$",
+                        "pattern": "^(https://upload\\.wikimedia\\.org/wikipedia/commons/).+\\.(svg|png|jpg|jpeg)$",
                         "format": "uri"
                     }                
                 },
@@ -42,7 +42,7 @@
                 "patternProperties": {
                     "(svg|png|jpg|jpeg)": {
                         "type": "string",
-                        "pattern": "^(https://raw.githubusercontent.com/FuReSH/tool-storage-metadata/main/assets/qr-code/)[a-z]{1}[a-z-]+(\\.qr\\.(svg|png|jpg|jpeg))$",
+                        "pattern": "^(https://raw\\.githubusercontent\\.com/FuReSH/tool-storage-metadata/main/assets/qr-code/)[a-z]{1}[a-z-]+(\\.qr\\.(svg|png|jpg|jpeg))$",
                         "format": "uri"
                     }                 
                 },
@@ -64,13 +64,15 @@
             "items": {
                 "type": "string",
                 "enum": [
-                    "Q95001953", 
-                    "Q2085518", 
-                    "Q9143", 
-                    "Q151885",
-                    "Q1438073",
-                    "Q47146",
-                    "Q188860"
+                    "Q17737", 
+                    "Q1799072", 
+                    "Q1438073", 
+                    "Q7397",
+                    "Q95001953",
+                    "Q3966",
+                    "Q9143",
+                    "Q2085518",
+                    "Q151885"
                 ]
             }
         },
