@@ -31,5 +31,4 @@ jobs:
       - name: Install check-jsonschema tool
         run: pip install check-jsonschema
       - name: Test check-jsonschema tool
-        run: echo ${GITHUB_WORKSPACE}
-       # run: check-jsonschema --check-metaschema ./schemas/blackbox.schema.json
+        run: check-jsonschema --check-metaschema ${GITHUB_WORKSPACE}/schemas/blackbox.schema.json
