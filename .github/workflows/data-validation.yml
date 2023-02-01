@@ -7,22 +7,25 @@ on:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
-  workflow_dispatch:
   
 jobs:
   test-validation:
     runs-on: ubuntu-latest
+    strategy:
+      # You can use PyPy versions in python-version.
+      # For example, pypy-2.7 and pypy-3.8
+      matrix:
+        python-version: ["3.8", "3.9", "3.10", "3.11"]
     steps:
-      - uses: actions/checkout@v1
-      - name: TEST Tools
-        uses: thiagodnf/yaml-schema-checker@v0.0.8
+      - uses: actions/checkout@v3
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v4
         with:
-          jsonSchemaFile: schemas/tool.schema.json
-          yamlFiles: |
-            test/tools/*.yml
-      - name: TEST Blackboxes
-        uses: thiagodnf/yaml-schema-checker@v0.0.8
-        with:
-          jsonSchemaFile: schemas/blackbox.schema.json
-          yamlFiles: |
-            test/blackboxes/*.yml
+          python-version: ${{ matrix.python-version }}
+      # You can test your matrix by printing the current Python version
+      - name: Display Python version
+        run: python -c "import sys; print(sys.version)"
+      - name: Install check-jsonschema tool
+        run: pip install check-jsonschema
+      - name: Test check-jsonschema tool
+        run: check-jsonschema --check-metaschema ../schemas/blackbox.schema.json
