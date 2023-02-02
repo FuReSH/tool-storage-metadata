@@ -22,10 +22,10 @@
                         "type": "string",
                         "pattern": "^(https://upload\\.wikimedia\\.org/wikipedia/commons/).+\\.(svg|png|jpg|jpeg)$",
                         "format": "uri"
-                    }                
+                    }
                 },
-                "additionalProperties": false 
-            }                      
+                "additionalProperties": false
+            }
         },
         "wikidata-id": {
             "description": "Unique Wikidata identifier. Starts always with prefix Q",
@@ -44,13 +44,13 @@
                         "type": "string",
                         "pattern": "^(https://raw\\.githubusercontent\\.com/FuReSH/tool-storage-metadata/main/assets/qr-code/)[a-z]{1}[a-z-]+(\\.qr\\.(svg|png|jpg|jpeg))$",
                         "format": "uri"
-                    }                 
+                    }
                 },
                 "additionalProperties": false
-            }            
+            }
          },
         "categories": { "$ref": "#/$defs/category-data" },
-        "set-up": { "$ref": "#/$defs/set-up-data" }       
+        "set-up": { "$ref": "#/$defs/set-up-data" }
     },
     "additionalProperties": false,
     "required": [ "name", "wikidata-id", "categories" ],
@@ -64,9 +64,9 @@
             "items": {
                 "type": "string",
                 "enum": [
-                    "Q17737", 
-                    "Q1799072", 
-                    "Q1438073", 
+                    "Q17737",
+                    "Q1799072",
+                    "Q1438073",
                     "Q7397",
                     "Q95001953",
                     "Q3966",
@@ -92,9 +92,8 @@
                         ]
                     },
                     "content": {
-                        
-                    }
 
+                    }
                 },
                 "additionalProperties": false,
                 "required": [ "set-up-type", "content" ]
