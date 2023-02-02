@@ -1,0 +1,6 @@
+check-jsonschema==0.21.0
+pre-commit==3.0.3
+# This file may be used to create an environment using:
+# $ conda create --name <env> --file <this file>
+# platform: osx-64
+python==3.*

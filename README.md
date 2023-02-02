@@ -1,9 +1,10 @@
+[![Validate YAML data](https://github.com/FuReSH/tool-storage-metadata/actions/workflows/data-validation.yml/badge.svg)](https://github.com/FuReSH/tool-storage-metadata/actions/workflows/data-validation.yml)
 [![pre-commit.ci status](https://results.pre-commit.ci/badge/github/FuReSH/tool-storage-interface/main.svg)](https://results.pre-commit.ci/latest/github/FuReSH/tool-storage-interface/main)
 
 ```yml
 title: "Readme: Werkzeugregal"
 subtitle: ""
-author: 
+author:
     - Till Grallert
     - Sophie Eckenstaler
 date: 2022-11-15
@@ -39,9 +40,9 @@ Der Begriff des Werkzeuges ist hier so weit wie möglich gefasst und umfasst Met
 
 # Ordnerstruktur
 
-- `blackboxes/`: Ordner für von uns gepackte / vorbereitete Blackboxes. Für jede Blackbox gibt es 
-    + eine YAML Datei (`blackbox.yml`) und 
-    + eine visuelle Übersicht über den Inhalt und wie er zusammengehört (`blackbox_schema.jpg`). 
+- `blackboxes/`: Ordner für von uns gepackte / vorbereitete Blackboxes. Für jede Blackbox gibt es
+    + eine YAML Datei (`blackbox.yml`) und
+    + eine visuelle Übersicht über den Inhalt und wie er zusammengehört (`blackbox_schema.jpg`).
 - `schemas/`: Ordner für JSON Schemata zur Validierung der YAML Dateien
 - `tools/`: Ordner für die einzelnen Werkzeuge
 
@@ -117,11 +118,11 @@ Blackboxes können ähnliche Setkarten bekommen
 
 Wir stellen uns einen mehrheitlich automatisierten Prozess der Erstellung der Setkarten auf der Basis der Informationen in unserer *tool registry* vor, dabei wird jedes Werkzeug mit einer einzelnen YAML Datei beschrieben.
 
-![Schematische Darstellung der Infrastruktur hinter den Setkarten](assets/concept_set-card-infrastructure.jpg) 
+![Schematische Darstellung der Infrastruktur hinter den Setkarten](assets/concept_set-card-infrastructure.jpg)
 
 # Blackboxes
 
-Blackboxes sind vor allem Methoden und Konzepte und nicht einzelne Werkzeuge, also "Web Scraping" und nicht "Python". Für jede Blackbox gibt es Input / Output und eine Menge Inhalt. Jede Blackbox hat auch einen Setkarte im Werkzeugregal, aus der Informationen gezogen werden können. 
+Blackboxes sind vor allem Methoden und Konzepte und nicht einzelne Werkzeuge, also "Web Scraping" und nicht "Python". Für jede Blackbox gibt es Input / Output und eine Menge Inhalt. Jede Blackbox hat auch einen Setkarte im Werkzeugregal, aus der Informationen gezogen werden können.
 Wie gehabt, werden Blackboxes mit YAML-Dateien beschrieben. Dazu gibt es eine eine visuelle Übersicht über den Inhalt und wie er zusammengehört. Dieser macht von der schematischen Ansicht unserer Setkarten Gebrauch.
 
 ![Blackbox: Web Scraping](blackboxes/web-scraping_schema.jpg)
