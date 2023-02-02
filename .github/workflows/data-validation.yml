@@ -4,11 +4,10 @@ name: Validate YAML data
 
 on:
   push:
-  pull_request:
     branches: [ "main" ]
-    #paths:
-     #- 'tools/**/*.yml'
-     #- 'blackboxes/**/*.yml'
+    paths:
+     - 'tools/**/*.yml'
+     - 'blackboxes/**/*.yml'
   
 jobs:
   validation-test:
