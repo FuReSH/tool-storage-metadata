@@ -1,4 +1,6 @@
----
+[![pre-commit.ci status](https://results.pre-commit.ci/badge/github/FuReSH/tool-storage-interface/main.svg)](https://results.pre-commit.ci/latest/github/FuReSH/tool-storage-interface/main)
+
+```yml
 title: "Readme: Werkzeugregal"
 subtitle: ""
 author: 
@@ -10,9 +12,7 @@ tags:
     - tools
     - FuReSH
     - readme
----
-
-[![pre-commit.ci status](https://results.pre-commit.ci/badge/github/FuReSH/tool-storage-interface/main.svg)](https://results.pre-commit.ci/latest/github/FuReSH/tool-storage-interface/main)
+```
 
 Dieser Ordner enthält die Daten zu unserem metaphorischen Werkzeugregal. Dahinter steht die Idee die Metaphern von Werkzeugen, Werkzeugkoffern, Werkzeugregalen, Blackboxes mit physischen Objekten pädagogisch nutzbar zu machen. So gibt es in unserem *Scholarly Makerspace* ein **Werkzeugregal** in dem sich **Werkzeugkisten** und **Blackboxes** befinden. Werkzeugkisten sind nach Typen (Kategorien) von Werkzeugen, z.B. "Programmiersprachen" oder "Dateiformate", und Blackboxes nach Themen, z.B. "Web Scraping" oder "Distant Reading", gepackt.
 

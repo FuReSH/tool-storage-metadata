@@ -1,0 +1,17 @@
+- id: check-jsonschema
+  name: Validate files with jsonschema
+  description: 'Validate JSON or YAML files against a jsonschema on disk or fetched via HTTP(S)'
+  entry: check-jsonschema
+  language: python
+  types_or: [json,yaml]
+  # we need types_or support
+  minimum_pre_commit_version: 2.9.0
+
+- id: check-metaschema
+  name: Validate JSON Schema files
+  description: 'Validate JSON Schema files against their matching metaschema'
+  entry: check-jsonschema --check-metaschema
+  language: python
+  types_or: [json,yaml]
+  # we need types_or support
+  minimum_pre_commit_version: 2.9.0

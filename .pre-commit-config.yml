@@ -1,0 +1,15 @@
+repos:
+- repo: https://github.com/python-jsonschema/check-jsonschema
+  rev: 0.21.0
+  hooks:
+    - id: check-metaschema
+      name: Validate Tool and Blackbox Schema
+      files: ^schemas/.*\.json$
+    - id: check-jsonschema
+      name: Validate Tool
+      args: ["--schemafile", "schemas/tool.schema.json"]
+      files: ^tools/.*\.tool\.yml|yaml$
+    - id: check-jsonschema
+      name: Validate Blackbox
+      args: ["--schemafile", "schemas/blackbox.schema.json"]
+      files: ^blackboxes/.*\.blackbox\.yml|yaml$
