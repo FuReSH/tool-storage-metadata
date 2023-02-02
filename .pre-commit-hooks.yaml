@@ -6,6 +6,7 @@
   types_or: [json,yaml]
   # we need types_or support
   minimum_pre_commit_version: 2.9.0
+  stages: [push]
 
 - id: check-metaschema
   name: Validate JSON Schema files
@@ -15,3 +16,4 @@
   types_or: [json,yaml]
   # we need types_or support
   minimum_pre_commit_version: 2.9.0
+  stages: [push]
