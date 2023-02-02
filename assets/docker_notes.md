@@ -1,7 +1,7 @@
 ---
 title: "Docker"
 subtitle: ""
-author: 
+author:
     - Till Grallert
 Institute: Future e-Research Support in the Humanities, Humboldt-Universität zu Berlin
 date: 2022-10-19

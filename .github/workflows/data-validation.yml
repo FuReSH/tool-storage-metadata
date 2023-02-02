@@ -13,7 +13,7 @@ on:
     paths:
      - 'tools/**/*.yml'
      - 'blackboxes/**/*.yml'
-  
+
 jobs:
   validation-test:
     runs-on: ubuntu-latest
@@ -34,6 +34,6 @@ jobs:
       - name: Install check-jsonschema tool
         run: pip install check-jsonschema
       - name: Validate tool
-        run: check-jsonschema --check-metaschema ${GITHUB_WORKSPACE}/schemas/blackbox.schema.json ${GITHUB_WORKSPACE}/tools/* 
+        run: check-jsonschema --check-metaschema ${GITHUB_WORKSPACE}/schemas/blackbox.schema.json ${GITHUB_WORKSPACE}/tools/*
       #- name: Validate blackbox
        # run: check-jsonschema --check-metaschema ${GITHUB_WORKSPACE}/schemas/blackbox.schema.json ${GITHUB_WORKSPACE}/blackboxes/*

@@ -6,4 +6,3 @@
 
 - Command:
     + <code>docker compose up -f docker-compose.tool.yml</code>
-

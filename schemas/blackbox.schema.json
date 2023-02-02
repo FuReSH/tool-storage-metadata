@@ -10,7 +10,7 @@
           "type": "string",
           "pattern": "^[a-z]{1}[a-z-]+(\\.blackbox)$"
       },
-      "tadirah-broader-concept": { 
+      "tadirah-broader-concept": {
         "desciption": "",
         "type": "array",
         "uniqueItems": true,

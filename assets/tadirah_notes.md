@@ -1,7 +1,7 @@
 ---
 title: "Werkzeuge: TaDiRAH"
 subtitle: ""
-author: 
+author:
   - Till Grallert
   - Sophie Eckenstaler
 date: 2023-01-18
@@ -16,20 +16,20 @@ ORCID: orcid.org/0000-0002-5739-8094
 - SPARQL endpoint: <https://vocabs-sparql.acdh.oeaw.ac.at>
 
 ```sparql
-PREFIX skos: <http://www.w3.org/2004/02/skos/core#> 
-PREFIX dc: <http://purl.org/dc/elements/1.1/> 
-SELECT ?clabel ?external_concept WHERE { 
-  ?concept a skos:Concept; 
-           skos:prefLabel ?clabel; 
-           skos:narrowMatch ?external_concept. 
-  FILTER (LANG(?clabel)="de") 
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX dc: <http://purl.org/dc/elements/1.1/>
+SELECT ?clabel ?external_concept WHERE {
+  ?concept a skos:Concept;
+           skos:prefLabel ?clabel;
+           skos:narrowMatch ?external_concept.
+  FILTER (LANG(?clabel)="de")
 }
 LIMIT 10
 ```
 
 # API
 
-Es gibt eine API, die unter <https://vocabs-api.acdh.oeaw.ac.at> documentiert ist. 
+Es gibt eine API, die unter <https://vocabs-api.acdh.oeaw.ac.at> documentiert ist.
 
 ## Gesamter Datensatz
 

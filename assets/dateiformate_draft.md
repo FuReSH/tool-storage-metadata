@@ -1,10 +1,10 @@
 ---
 title: "Setcard für Werkzeuge"
 subtitle: "template"
-author: 
+author:
    - Till Grallert
    - Sophie Eckenstaler
-date: 2022-04-07 
+date: 2022-04-07
 licence: https://creativecommons.org/licenses/by/4.0/
 bibliography: ../assets/bibliography/FuReSH.csl.json
 suppress-bibliography: true
@@ -20,9 +20,9 @@ tags:
 ::: columns
 :::: column
 
-- [ ] [[Methode]] 
+- [ ] [[Methode]]
 - [ ] [[Konzept]]
-- [x] [[Format]] 
+- [x] [[Format]]
 - [ ] [[Sprache]]
 
 ::::
@@ -37,7 +37,7 @@ tags:
 :::
 
 Jede Datei hat eine interne Struktur und Regeln, wie diese zu lesen ist. Um Computern von vornherein mitzuteilen um welches Dateiformat es sich bei einer Datei handelt, gibt es *Dateiendungen* (z.b. `.txt`). Grundsätzlich wird zwischen *binären* und *text* Dateien unterschieden.
-   
+
 # Wofür brauche ich das?
 # Ist das wichtig?
 Ja

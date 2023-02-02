@@ -2,10 +2,10 @@
 title: "eScriptorium"
 subtitle: ""
 author:
-    - Sophie Eckenstaler 
+    - Sophie Eckenstaler
     - Till Grallert
 affiliation: Future e-Research Support in the Humanities, Humboldt-Universität zu Berlin
-date: 2022-05-05 
+date: 2022-05-05
 status: draft
 lang: de
 licence: https://creativecommons.org/licenses/by/4.0/

@@ -1,11 +1,11 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/FuReSH/tool-storage-metadata/main/schemas/blackbox.schema.json
 ---
-name: 
+name:
 tadirah-broader-concept:
-  - 
+  -
 input:
-  - 
+  -
 processing:
-  - 
+  -
 output:
-  - 
+  -

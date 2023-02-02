@@ -1,10 +1,10 @@
 ---
 title: "Setcard für Werkzeuge"
 subtitle: "template"
-author: 
+author:
    - Till Grallert
    - Sophie Eckenstaler
-date: 2022-04-07 
+date: 2022-04-07
 licence: https://creativecommons.org/licenses/by/4.0/
 bibliography: ../assets/bibliography/FuReSH.csl.json
 suppress-bibliography: true
@@ -20,9 +20,9 @@ tags:
 ::: columns
 :::: column
 
-- [ ] [[Methode]] 
+- [ ] [[Methode]]
 - [ ] [[Konzept]]
-- [ ] [[Format]] 
+- [ ] [[Format]]
 - [ ] [[Sprache]]
 
 ::::
@@ -36,11 +36,11 @@ tags:
 ::::
 :::
 
-<!-- kurze Beschreibung? --> 
-   
+<!-- kurze Beschreibung? -->
+
 # Wofür brauche ich das?
 # Ist das wichtig?
- 
+
 # Wie sieht das aus?
 
 <!-- code snippets oder icon -->
@@ -50,6 +50,6 @@ tags:
 ```
 # Was brauche ich dafür?
 # Wo finde ich mehr dazu?
-   
+
    - [[docker_draft]] lokaler Link
-   - [externer Link](docker_draft.md) 
+   - [externer Link](docker_draft.md)

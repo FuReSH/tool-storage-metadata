@@ -2,10 +2,10 @@
 title: "HU Box"
 subtitle: ""
 author:
-    - Sophie Eckenstaler 
+    - Sophie Eckenstaler
     - Till Grallert
 affiliation: Future e-Research Support in the Humanities, Humboldt-Universität zu Berlin
-date: 2022-06-13 
+date: 2022-06-13
 status: draft
 lang: de
 licence: https://creativecommons.org/licenses/by/4.0/
@@ -19,7 +19,7 @@ tags:
 
 # Beschreibung
 
-HU Box ist eine [Seafile](https://www.seafile.com) Installation (v 8.0.17) für den Dateiaustausch. Seafile ist eine open-source Dokumentencloud, die lokal, in dem Fall von der HU, gehostet wird. 
+HU Box ist eine [Seafile](https://www.seafile.com) Installation (v 8.0.17) für den Dateiaustausch. Seafile ist eine open-source Dokumentencloud, die lokal, in dem Fall von der HU, gehostet wird.
 
 ## Gemeinsames Berarbeiten von Dateien
 

@@ -1,7 +1,7 @@
 ---
 title: "Etherpads"
 subtitle: "Offene, markdown-basierte online Texteditoren"
-author: 
+author:
     - Till Grallert
 Institute: Future e-Research Support in the Humanities, Humboldt-Universität zu Berlin
 date: 2022-10-18
@@ -18,7 +18,7 @@ tags:
 
 - Software
     + [Etherpad](https://etherpad.org): "Etherpad is a highly customizable open source online editor providing collaborative editing in really real-time."
-        * Has a well-documented API 
+        * Has a well-documented API
         * plug-ins:
             - markdown support
             - comments
