@@ -8,8 +8,8 @@ repos:
     - id: check-jsonschema
       name: Validate Tool
       args: ["--schemafile", "schemas/tool.schema.json"]
-      files: ^tools/.*\.tool\.yml$
+      files: ^tools/.*\.tool\.(yml|yaml)$
     - id: check-jsonschema
       name: Validate Blackbox
       args: ["--schemafile", "schemas/blackbox.schema.json"]
-      files: ^blackboxes/.*\.blackbox\.yml$
+      files: ^blackboxes/.*\.blackbox\.(yml|yaml)$
