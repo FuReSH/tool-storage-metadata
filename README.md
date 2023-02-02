@@ -1,5 +1,5 @@
 [![Validate YAML data](https://github.com/FuReSH/tool-storage-metadata/actions/workflows/data-validation.yml/badge.svg)](https://github.com/FuReSH/tool-storage-metadata/actions/workflows/data-validation.yml)
-[![pre-commit.ci status](https://results.pre-commit.ci/badge/github/FuReSH/tool-storage-interface/main.svg)](https://results.pre-commit.ci/latest/github/FuReSH/tool-storage-interface/main)
+[![pre-commit.ci status](https://results.pre-commit.ci/badge/github/FuReSH/tool-storage-metadata/main.svg)](https://results.pre-commit.ci/latest/github/FuReSH/tool-storage-metadata/main)
 
 ```yml
 title: "Readme: Werkzeugregal"
