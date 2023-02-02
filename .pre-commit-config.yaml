@@ -4,7 +4,7 @@ repos:
   hooks:
     - id: check-metaschema
       name: Validate Tool and Blackbox Schema
-      files: ^schemas/.*\.json$
+      files: ^schemas/.*\.schema\.json$
     - id: check-jsonschema
       name: Validate Tool
       args: ["--schemafile", "schemas/tool.schema.json"]
