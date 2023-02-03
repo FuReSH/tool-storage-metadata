@@ -1,21 +1,15 @@
-# This is a basic workflow to verify yaml data for tools and blackboxes
+# This is a basic validation workflow for TESTING yaml data for tools and blackboxes
 
-name: Validate YAML data
+name: Test YAML data
 
 on:
   push:
     branches: [ "main" ]
     paths:
-     - 'tools/**/*.yml'
-     - 'blackboxes/**/*.yml'
-  pull_request:
-    branches: [ "main" ]
-    paths:
-     - 'tools/**/*.yml'
-     - 'blackboxes/**/*.yml'
+     - 'test/**/*.yml'
 
 jobs:
-  validation-test:
+  test:
     runs-on: ubuntu-latest
     strategy:
       # You can use PyPy versions in python-version.
@@ -34,6 +28,6 @@ jobs:
       - name: Install check-jsonschema tool
         run: pip install check-jsonschema
       - name: Validate tool
-        run: check-jsonschema --check-metaschema ${GITHUB_WORKSPACE}/schemas/blackbox.schema.json ${GITHUB_WORKSPACE}/tools/*
-      #- name: Validate blackbox
-       # run: check-jsonschema --check-metaschema ${GITHUB_WORKSPACE}/schemas/blackbox.schema.json ${GITHUB_WORKSPACE}/blackboxes/*
+        run: check-jsonschema --check-metaschema ${GITHUB_WORKSPACE}/schemas/tool.schema.json ${GITHUB_WORKSPACE}/test/tools/*
+      - name: Validate blackbox
+        run: check-jsonschema --check-metaschema ${GITHUB_WORKSPACE}/schemas/blackbox.schema.json ${GITHUB_WORKSPACE}/test/blackboxes/*
