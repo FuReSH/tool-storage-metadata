@@ -1,4 +1,4 @@
-[![Validate YAML data](https://github.com/FuReSH/tool-storage-metadata/actions/workflows/data-validation.yml/badge.svg)](https://github.com/FuReSH/tool-storage-metadata/actions/workflows/data-validation.yml)
+[![Test YAML data](https://github.com/FuReSH/tool-storage-metadata/actions/workflows/data-validation.yml/badge.svg?branch=main)](https://github.com/FuReSH/tool-storage-metadata/actions/workflows/data-validation.yml)
 [![pre-commit.ci status](https://results.pre-commit.ci/badge/github/FuReSH/tool-storage-metadata/main.svg)](https://results.pre-commit.ci/latest/github/FuReSH/tool-storage-metadata/main)
 
 ```yml
