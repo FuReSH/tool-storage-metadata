@@ -20,9 +20,9 @@ jobs:
         python-version: ["3.8", "3.9", "3.10", "3.11"]
     steps:
       - uses: actions/checkout@v3
-      - name: Get changed files
         with:
-          fetch-depth: 0
+            fetch-depth: 0
+      - name: Get changed files
         id: changed-files
         # Set outputs using the command.
         run: git diff --name-only ${{ github.event.before }} ${{ github.event.after }}
