@@ -12,7 +12,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     outputs:
-      yml: ${{ steps.changedfiles.outputs.yml }}
+      yml: ${{ steps.changes.outputs.yml }}
     strategy:
       # You can use PyPy versions in python-version.
       # For example, pypy-2.7 and pypy-3.8
@@ -23,14 +23,9 @@ jobs:
         with:
             fetch-depth: 0
       - name: Get changed files
-        id: changedfiles
+        id: changes
         # Set outputs using the command.
         run: echo "::set-output name=yml::$git diff --name-only ${{ github.event.before }} ${{ github.event.after }}"
-      - name: List changed files
-        run: |
-            for file in ${{ steps.changed-files.outputs.changed_files }}; do
-                echo "$file was changed"
-            done
       - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v4
         with:
@@ -47,9 +42,9 @@ jobs:
   check-test:
     runs-on: ubuntu-latest
     # require the first job to have ran
-    needs: changedfiles
+    needs: test
     # only run there are changed files
-    if: ${{needs.changedfiles.outputs.yml}}
+    if: ${{needs.test.outputs.yml}}
     steps:
       - name: echo changed files
-        run: echo ${{needs.changedfiles.outputs.yml}}
+        run: echo ${{needs.test.outputs.yml}}
