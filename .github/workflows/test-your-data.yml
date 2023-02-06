@@ -25,7 +25,7 @@ jobs:
       - name: Get changed files
         id: changes
         # Set outputs using the command.
-        run: echo "yml=$git diff --name-only ${{ github.event.before }} ${{ github.event.after }}" >> $GITHUB_OUTPUT
+        run: echo "yml=$(git diff --name-only --diff-filter=ACMRT ${{ github.event.pull_request.base.sha }} ${{ github.sha }} | grep .yml$ | xargs)" >> $GITHUB_OUTPUT
       - name: echo output
         run: echo $GITHUB_OUTPUT
       - name: Set up Python ${{ matrix.python-version }}
