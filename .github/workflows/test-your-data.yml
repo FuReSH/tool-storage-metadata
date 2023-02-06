@@ -23,8 +23,8 @@ jobs:
           files: |
             test/tools/*.{yml,yaml}
             test/blackboxes/*.{yml,yaml}
-      - name: Run step if any file(s) in the docs folder change
+      - name: Run step if any file(s) in the test folder change
         if: steps.changed-files.outputs.any_changed == 'true'
         run: |
-          echo "One or more files in the test blackboxes folder has changed."
+          echo "One or more files in the test folder has changed."
           echo "List all the files that have changed: ${{ steps.changed-files.outputs.all_changed_files }}"
