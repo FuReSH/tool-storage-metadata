@@ -30,11 +30,11 @@ jobs:
           echo "List all the files that have changed: ${{ steps.changed-files.outputs.all_changed_files }}"
   test:
       runs-on: ubuntu-latest
-      name: Test YAML data
+      name: Test yaml-data
       # require the first job to have ran
       needs: check
       # only run there are changed files
-      if: needs.check.outputs.any_changed == 'true'
+      if: needs.check.changed-files.outputs.any_changed == 'true'
       strategy:
         # You can use PyPy versions in python-version.
         # For example, pypy-2.7 and pypy-3.8
