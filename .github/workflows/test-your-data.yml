@@ -51,7 +51,7 @@ jobs:
           run: pip install check-jsonschema
         - name: Validate tool or blackbox test data
           #if: contains(steps.changed-files.outputs.modified_files, '*.tool.yml')
-          run: check-jsonschema --schemafile ${GITHUB_WORKSPACE}/schemas/tool.schema.json ${{steps.changed-files.outputs.modified_files}*.tool.yml}
+          run: check-jsonschema --schemafile ${GITHUB_WORKSPACE}/schemas/tool.schema.json ${GITHUB_WORKSPACE}/test/tools/*
         #- name: Validate blackbox test data
           #if: contains(steps.changed-files.outputs.modified_files, '*.blackbox.yml')
           #run: check-jsonschema --check-metaschema ${GITHUB_WORKSPACE}/schemas/blackbox.schema.json ${GITHUB_WORKSPACE}/test/blackboxes/*
