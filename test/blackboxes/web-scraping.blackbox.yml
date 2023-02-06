@@ -5,8 +5,8 @@ tadirah-broader-concept:
   - https://vocabs.dariah.eu/tadirah/archiving
   - https://vocabs.dariah.eu/tadirah/gathering
 input:
-  - docker.tool
+  - docker
 processing:
-  - docker.tool
+  - docker
 output:
   - docker.
