@@ -1,6 +1,6 @@
 # This is a basic validation workflow for TESTING yaml data for tools and blackboxes
 
-name: Test your YAML data for Python v3.8, v3.9, v3.10, v3.11
+name: Last check of YAML test data
 
 on:
   push:
