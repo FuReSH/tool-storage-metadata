@@ -49,7 +49,7 @@ jobs:
     # require the first job to have ran
     needs: changedfiles
     # only run there are changed files
-    if: ${{needs.changedfiles.outputs.ts}}
+    if: ${{needs.changedfiles.outputs.yml}}
     steps:
       - name: echo changed files
         run: echo ${{needs.changedfiles.outputs.yml}}
