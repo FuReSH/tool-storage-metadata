@@ -7,6 +7,6 @@ tadirah-broader-concept:
 input:
   - dockes
 processing:
-  - docker
+  - dockerd
 output:
   - docker.tool
