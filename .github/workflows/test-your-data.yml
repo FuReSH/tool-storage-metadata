@@ -12,6 +12,9 @@ jobs:
   check:
     runs-on: ubuntu-latest
     name: Check changed-files
+    outputs:
+      changed: ${{ steps.output1.outputs.changed}}
+      yml: ${{ steps.output2.outputs.yml }}
     steps:
       - uses: actions/checkout@v3
         with:
@@ -23,18 +26,19 @@ jobs:
           files: |
             test/tools/*.{yml,yaml}
             test/blackboxes/*.{yml,yaml}
-      - name: Run step if any file(s) in the test folder change
-        if: steps.changed-files.outputs.any_changed == 'true'
-        run: |
-          echo "One or more files in the test folder has changed."
-          echo "List all the files that have changed: ${{ steps.changed-files.outputs.all_changed_files }}"
+      - name: Output is changed
+        id: output1
+        run: echo "changed=${{ steps.changed-files-specific.outputs.any_changed }}" >> $GITHUB_OUTPUT
+      - name: Output changed files
+        id: output2
+        run: echo "yml=${{ steps.changed-files.outputs.all_changed_files }}" >> $GITHUB_OUTPUT
   test:
       runs-on: ubuntu-latest
       name: Test yaml-data
       # require the first job to have ran
       needs: check
-      # only run there are changed files of check job
-      if: needs.check.outputs.any_changed == 'true'
+      # only run there are changes in the test folder
+      if: needs.check.outputs.output1 == 'true'
       strategy:
         # You can use PyPy versions in python-version.
         # For example, pypy-2.7 and pypy-3.8
@@ -43,7 +47,7 @@ jobs:
       steps:
         - uses: actions/checkout@v3
         - name: echo output
-          run: echo ${{ needs.check.outputs.all_changed_files }}
+          run: echo ${{ needs.check.outputs.output2 }}
         - name: Set up Python ${{ matrix.python-version }}
           uses: actions/setup-python@v4
           with:
