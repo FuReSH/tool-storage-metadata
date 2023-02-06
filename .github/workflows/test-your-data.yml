@@ -32,15 +32,16 @@ jobs:
       runs-on: ubuntu-latest
       name: Test yaml-data
       # require the first job to have ran
-      #needs: check
+      needs: check
       # only run there are changed files of check job
-      #if: needs.check.outputs.any_changed == 'true'
+      if: needs.check.outputs.any_changed == 'true'
       strategy:
         # You can use PyPy versions in python-version.
         # For example, pypy-2.7 and pypy-3.8
         matrix:
           python-version: ["3.8", "3.9", "3.10", "3.11"]
       steps:
+        - uses: actions/checkout@v3
         - name: echo output
           run: echo ${{ needs.check.outputs.all_changed_files }}
         - name: Set up Python ${{ matrix.python-version }}
@@ -54,7 +55,7 @@ jobs:
           run: pip install check-jsonschema
         - name: Validate tool or blackbox test data
           #if: contains(steps.changed-files.outputs.modified_files, '*.tool.yml')
-          run: check-jsonschema --schemafile schemas/tool.schema.json test/tools/*
+          run: check-jsonschema --schemafile ${GITHUB_WORKSPACE}/schemas/tool.schema.json ${GITHUB_WORKSPACE}/test/tools/*
         #- name: Validate blackbox test data
           #if: contains(steps.changed-files.outputs.modified_files, '*.blackbox.yml')
           #run: check-jsonschema --check-metaschema ${GITHUB_WORKSPACE}/schemas/blackbox.schema.json ${GITHUB_WORKSPACE}/test/blackboxes/*
