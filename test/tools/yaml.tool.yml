@@ -2,7 +2,7 @@
 ---
 name: yaml.tool
 image:
-    - svg: https://upload.wikimedia.org/wikipedia/commons/5/5a/Official_YAML_Logo.sv
+    - svg: https://upload.wikimedia.org/wikipedia/commons/5/5a/Official_YAML_Logo.svg
 wikidata-id: Q281876
 categories:
   - Q95001953

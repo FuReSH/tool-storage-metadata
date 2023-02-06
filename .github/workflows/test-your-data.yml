@@ -32,9 +32,9 @@ jobs:
       runs-on: ubuntu-latest
       name: Test yaml-data
       # require the first job to have ran
-      needs: check
+      #needs: check
       # only run there are changed files of check job
-      if: needs.check.outputs.any_changed == 'true'
+      #if: needs.check.outputs.any_changed == 'true'
       strategy:
         # You can use PyPy versions in python-version.
         # For example, pypy-2.7 and pypy-3.8
