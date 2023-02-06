@@ -27,7 +27,7 @@ jobs:
         # Set outputs using the command.
         run: echo "yml=$git diff --name-only ${{ github.event.before }} ${{ github.event.after }}" >> $GITHUB_OUTPUT
       - name: echo output
-        run: echo ${{ steps.changes.outputs.yml }}
+        run: echo $GITHUB_OUTPUT
       - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v4
         with:
