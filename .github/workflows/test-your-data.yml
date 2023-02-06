@@ -1,0 +1,46 @@
+# This is a basic validation workflow for TESTING yaml data for tools and blackboxes
+
+name: Test your YAML data for Python v3.8, v3.9, v3.10, v3.11
+
+on:
+  push:
+    branches: [ "main" ]
+    paths:
+     - 'test/**/*.yml'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    #outputs:
+      #yml: ${{ steps.changed-files.outputs.yml }}
+    strategy:
+      # You can use PyPy versions in python-version.
+      # For example, pypy-2.7 and pypy-3.8
+      matrix:
+        python-version: ["3.8", "3.9", "3.10", "3.11"]
+    steps:
+      - uses: actions/checkout@v3
+      - name: Get changed files
+        with:
+          fetch-depth: 0
+        id: changed-files
+        # Set outputs using the command.
+        run: git diff --name-only ${{ github.event.before }} ${{ github.event.after }}
+      - name: List changed files
+        run: |
+            for file in ${{ steps.changed-files.outputs.changed_files }}; do
+                echo "$file was changed"
+            done
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python-version }}
+      # You can test your matrix by printing the current Python version
+      - name: Display Python version
+        run: python -c "import sys; print(sys.version)"
+      - name: Install check-jsonschema tool
+        run: pip install check-jsonschema
+      - name: Validate tool and blackbox data
+        run: |
+          check-jsonschema --check-metaschema ${GITHUB_WORKSPACE}/schemas/tool.schema.json ${GITHUB_WORKSPACE}/test/tools/*
+          check-jsonschema --check-metaschema ${GITHUB_WORKSPACE}/schemas/blackbox.schema.json ${GITHUB_WORKSPACE}/test/blackboxes/*
