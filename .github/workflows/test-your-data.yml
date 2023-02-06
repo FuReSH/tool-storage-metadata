@@ -33,7 +33,7 @@ jobs:
       # require the first job to have ran
       needs: build
       # only run there are changed files
-      if: ${{ needs.build.changed-files.outputs.any_changed == 'true' }}
+      if: needs.build.outputs.any_changed == 'true'
       strategy:
         # You can use PyPy versions in python-version.
         # For example, pypy-2.7 and pypy-3.8
