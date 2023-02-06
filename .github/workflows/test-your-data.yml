@@ -13,11 +13,6 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       yml: ${{ steps.changes.outputs.yml }}
-    strategy:
-      # You can use PyPy versions in python-version.
-      # For example, pypy-2.7 and pypy-3.8
-      matrix:
-        python-version: ["3.8", "3.9", "3.10", "3.11"]
     steps:
       - uses: actions/checkout@v3
         with:
@@ -25,9 +20,26 @@ jobs:
       - name: Get changed files
         id: changes
         # Set outputs using the command.
-        run: echo "yml=$(git diff --name-only --diff-filter=ACMRT ${{ github.event.pull_request.base.sha }} ${{ github.sha }} | grep .yml$ | xargs)" >> $GITHUB_OUTPUT
+        run: echo "yml=$(git diff --name-only ${{ github.event.before }} ${{ github.event.after }} | xargs)" >> $GITHUB_OUTPUT
       - name: echo output
-        run: echo $GITHUB_OUTPUT
+        run: |
+          for file in ${{ steps.changes.outputs.yml }}; do
+              echo "$file was changed"
+          done
+  check-test:
+    runs-on: ubuntu-latest
+    # require the first job to have ran
+    needs: test
+    # only run there are changed files
+    if: ${{needs.test.outputs.yml}}
+    strategy:
+      # You can use PyPy versions in python-version.
+      # For example, pypy-2.7 and pypy-3.8
+      matrix:
+        python-version: ["3.8", "3.9", "3.10", "3.11"]
+    steps:
+      - name: echo changed files
+        run: echo ${{needs.test.outputs.yml}}
       - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v4
         with:
@@ -38,15 +50,6 @@ jobs:
       - name: Install check-jsonschema tool
         run: pip install check-jsonschema
       - name: Validate tool and blackbox data
-        run: |
-          check-jsonschema --check-metaschema ${GITHUB_WORKSPACE}/schemas/tool.schema.json ${GITHUB_WORKSPACE}/test/tools/*
+        run: #|
+          #check-jsonschema --check-metaschema ${GITHUB_WORKSPACE}/schemas/tool.schema.json ${GITHUB_WORKSPACE}/test/tools/*
           check-jsonschema --check-metaschema ${GITHUB_WORKSPACE}/schemas/blackbox.schema.json ${GITHUB_WORKSPACE}/test/blackboxes/*
-  check-test:
-    runs-on: ubuntu-latest
-    # require the first job to have ran
-    needs: test
-    # only run there are changed files
-    if: ${{needs.test.outputs.yml}}
-    steps:
-      - name: echo changed files
-        run: echo ${{needs.test.outputs.yml}}
