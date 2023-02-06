@@ -32,13 +32,14 @@ jobs:
       - name: Output changed files
         id: output2
         run: echo "yml=${{ steps.changed-files.outputs.all_changed_files }}" >> $GITHUB_OUTPUT
+
   test:
       runs-on: ubuntu-latest
       name: Test yaml-data
       # require the first job to have ran
       needs: check
       # only run there are changes in the test folder
-      if: needs.check.outputs.output1 == 'true'
+      if: needs.check.outputs.changed == 'true'
       strategy:
         # You can use PyPy versions in python-version.
         # For example, pypy-2.7 and pypy-3.8
@@ -47,7 +48,7 @@ jobs:
       steps:
         - uses: actions/checkout@v3
         - name: echo output
-          run: echo ${{ needs.check.outputs.output2 }}
+          run: echo ${{ needs.check.outputs.yml }}
         - name: Set up Python ${{ matrix.python-version }}
           uses: actions/setup-python@v4
           with:
