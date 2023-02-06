@@ -42,7 +42,7 @@ jobs:
           python-version: ["3.8", "3.9", "3.10", "3.11"]
       steps:
         - name: echo output
-          run: echo ${{ steps.changed-files.outputs.all_changed_files }}
+          run: echo ${{ needs.check.outputs.all_changed_files }}
         - name: Set up Python ${{ matrix.python-version }}
           uses: actions/setup-python@v4
           with:
@@ -54,7 +54,7 @@ jobs:
           run: pip install check-jsonschema
         - name: Validate tool or blackbox test data
           #if: contains(steps.changed-files.outputs.modified_files, '*.tool.yml')
-          run: check-jsonschema --schemafile ${GITHUB_WORKSPACE}/schemas/tool.schema.json ${GITHUB_WORKSPACE}/test/tools/*
+          run: check-jsonschema --schemafile schemas/tool.schema.json test/tools/*
         #- name: Validate blackbox test data
           #if: contains(steps.changed-files.outputs.modified_files, '*.blackbox.yml')
           #run: check-jsonschema --check-metaschema ${GITHUB_WORKSPACE}/schemas/blackbox.schema.json ${GITHUB_WORKSPACE}/test/blackboxes/*
