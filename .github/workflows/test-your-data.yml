@@ -16,11 +16,6 @@ jobs:
       - name: Clean test folder from old data
         id: clean
         run: |
-          rm -rf test/tools/*
-          rm -rf test/blackboxes/*
-          echo "::set-output name=tyml::$(find test/tools -name '*.yml')"
-          echo "::set-output name=byml::$(find test/blackboxes -name '*.yml')"
-      - name: echo output
-        run: |
-          echo ${{ steps.clean.outputs.tyml }}
-          echo ${{ steps.clean.outputs.byml }}
+          rm -rf ${GITHUB_WORKSPACE}/test/tools/*
+          rm -rf ${GITHUB_WORKSPACE}/test/blackboxes/*
+          echo "Removed old data from test folder"
