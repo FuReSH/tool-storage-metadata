@@ -16,13 +16,10 @@ jobs:
       - name: Clean test folder from old data
         id: clean
         run: |
-          rm -f test/tools/*
-          rm -f test/blackboxes/*
+          rm -f ${GITHUB_WORKSPACE}/test/tools/*
+          rm -f ${GITHUB_WORKSPACE}/test/blackboxes/*
           echo "Removed old data from test folder"
-      - name: Commit files and push it
+      - name: Show empty folders
         run: |
-          git config --global user.email "furesh@host.com"
-          git config --global user.name "github actions"
-          git add .
-          git commit -m "furesh: clean repo"
-          git push --force
+          ls -l ${GITHUB_WORKSPACE}/test/tools
+          ls -l ${GITHUB_WORKSPACE}/test/blackboxes
