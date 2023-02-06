@@ -9,9 +9,9 @@ on:
      - 'test/**/*.yml'
 
 jobs:
-  build:
+  check:
     runs-on: ubuntu-latest
-    name: Test changed-files
+    name: Check changed-files
     steps:
       - uses: actions/checkout@v3
         with:
@@ -28,12 +28,13 @@ jobs:
         run: |
           echo "One or more files in the test folder has changed."
           echo "List all the files that have changed: ${{ steps.changed-files.outputs.all_changed_files }}"
-  check-test:
+  test:
       runs-on: ubuntu-latest
+      name: Test YAML data
       # require the first job to have ran
-      needs: build
+      needs: check
       # only run there are changed files
-      if: needs.build.outputs.any_changed == 'true'
+      if: needs.check.outputs.any_changed == 'true'
       strategy:
         # You can use PyPy versions in python-version.
         # For example, pypy-2.7 and pypy-3.8
