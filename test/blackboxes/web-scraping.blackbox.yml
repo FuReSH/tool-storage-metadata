@@ -9,4 +9,4 @@ input:
 processing:
   - docker.tool
 output:
-  - docker.tool
+  - docker

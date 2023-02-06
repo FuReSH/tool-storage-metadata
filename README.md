@@ -1,6 +1,5 @@
 [![pre-commit.ci status](https://results.pre-commit.ci/badge/github/FuReSH/tool-storage-metadata/main.svg)](https://results.pre-commit.ci/latest/github/FuReSH/tool-storage-metadata/main)
-[![Test your YAML data for Python v3.8, v3.9, v3.10, v3.11](https://github.com/FuReSH/tool-storage-metadata/actions/workflows/test-your-data.yml/badge.svg)](https://github.com/FuReSH/tool-storage-metadata/actions/workflows/test-your-data.yml)
-
+[![Last check of YAML test data](https://github.com/FuReSH/tool-storage-metadata/actions/workflows/test-your-data.yml/badge.svg)](https://github.com/FuReSH/tool-storage-metadata/actions/workflows/test-your-data.yml)
 ```yml
 title: "Readme: Werkzeugregal"
 subtitle: ""

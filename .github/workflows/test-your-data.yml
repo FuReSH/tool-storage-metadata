@@ -11,8 +11,8 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-    #outputs:
-      #yml: ${{ steps.changed-files.outputs.yml }}
+    outputs:
+      yml: ${{ steps.changedfiles.outputs.yml }}
     strategy:
       # You can use PyPy versions in python-version.
       # For example, pypy-2.7 and pypy-3.8
@@ -23,9 +23,9 @@ jobs:
         with:
             fetch-depth: 0
       - name: Get changed files
-        id: changed-files
+        id: changedfiles
         # Set outputs using the command.
-        run: git diff --name-only ${{ github.event.before }} ${{ github.event.after }}
+        run: echo "::set-output name=yml::$git diff --name-only ${{ github.event.before }} ${{ github.event.after }}"
       - name: List changed files
         run: |
             for file in ${{ steps.changed-files.outputs.changed_files }}; do
@@ -44,3 +44,12 @@ jobs:
         run: |
           check-jsonschema --check-metaschema ${GITHUB_WORKSPACE}/schemas/tool.schema.json ${GITHUB_WORKSPACE}/test/tools/*
           check-jsonschema --check-metaschema ${GITHUB_WORKSPACE}/schemas/blackbox.schema.json ${GITHUB_WORKSPACE}/test/blackboxes/*
+  check-test:
+    runs-on: ubuntu-latest
+    # require the first job to have ran
+    needs: changedfiles
+    # only run there are changed files
+    if: ${{needs.changedfiles.outputs.ts}}
+    steps:
+      - name: echo changed files
+        run: echo ${{needs.changedfiles.outputs.yml}}
