@@ -9,11 +9,22 @@ on:
      - 'test/**/*.yml'
 
 jobs:
-  clean-test:
+  build:
     runs-on: ubuntu-latest
+    name: Test changed-files
     steps:
       - uses: actions/checkout@v3
-      - name: Show empty folders
+        with:
+          fetch-depth: 0
+      - name: Get changed files in the test folder
+        id: changed-files-specific
+        uses: tj-actions/changed-files@v35
+        with:
+          files:
+            test/tools/*.{yml,yaml}
+            test/blackboxes/*.{yml,yaml}
+      - name: Run step if any file(s) in the docs folder change
+        if: steps.changed-files-specific.outputs.any_changed == 'true'
         run: |
-          ls -l ${GITHUB_WORKSPACE}/test/tools
-          ls -l ${GITHUB_WORKSPACE}/test/blackboxes
+          echo "One or more files in the docs folder has changed."
+          echo "List all the files that have changed: ${{ steps.changed-files-specific.outputs.all_changed_files }}"
