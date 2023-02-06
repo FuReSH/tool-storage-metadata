@@ -20,9 +20,7 @@ jobs:
         id: changed-files-specific
         uses: tj-actions/changed-files@v35
         with:
-          files:
-            test/tools/*.{yml,yaml}
-            test/blackboxes/*.{yml,yaml}
+          files: test/blackboxes/*.{yml,yaml}
       - name: Run step if any file(s) in the docs folder change
         if: steps.changed-files-specific.outputs.any_changed == 'true'
         run: |
