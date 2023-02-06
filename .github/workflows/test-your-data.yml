@@ -16,8 +16,8 @@ jobs:
       - name: Clean test folder from old data
         id: clean
         run: |
-          rm -f ${GITHUB_WORKSPACE}/test/tools/*
-          rm -f ${GITHUB_WORKSPACE}/test/blackboxes/*
+          rm -f test/tools/*
+          rm -f test/blackboxes/*
           echo "Removed old data from test folder"
       - name: Commit files and push it
         run: |
@@ -25,4 +25,4 @@ jobs:
           git config --global user.name "github actions"
           git add .
           git commit -m "furesh: clean repo"
-          git push
+          git push --force
