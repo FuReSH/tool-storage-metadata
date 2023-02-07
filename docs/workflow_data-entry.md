@@ -32,7 +32,7 @@ All Wikidata items need at least a label and a short prose description
 The minimal required statements for software are
 
 - [instance of](): [Software](https://www.wikidata.org/wiki/Q7397)
-- [programmed in](): 
+- [programmed in]():
 - [software version identifier]()
     + [publication date]()
     + reference
