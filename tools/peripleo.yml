@@ -1,0 +1,6 @@
+---
+# yaml-language-server: $schema=../schemas/tool.schema.json
+name: peripleo
+wikidataId: Q74693165
+category:
+  - software

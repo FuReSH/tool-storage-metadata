@@ -5,13 +5,13 @@ image:         # can be empty. URI for an image on Wikimedia Commons
 wikidata-id: Q # Unique Wikidata identifier. Please look it up and create a new item on Wikidata if necessary
 qr-code:       # can be empty. URI for a QR Code. will be automatically created
 categories:    # please select one or more of the following categories by deleting irrelevant lines
-  - Q95001953  # research software
-  - Q2085518   # format
-  - Q9143      # programming language
-  - Q151885    # concept
-  - Q1438073   # research method
-  - Q47146     # user interface
-  - Q188860    # software library
-set-up:
+  - Q17737      # theory
+  - Q1799072    # method
+  - Q7397       # software
+  - Q3966       # hardware
+  - Q9143       # programming language
+  - Q2085518    # format
+  - Q151885     # concept
+set-up:        # remove if not needed
   - set-up-type:
     content:

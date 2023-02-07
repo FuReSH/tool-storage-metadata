@@ -1,0 +1,6 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/FuReSH/tool-storage-metadata/main/schemas/tool.schema.json
+---
+name: pyktok.tool
+wikidata-id: Q116702030 # Unique Wikidata identifier. Please look it up and create a new item on Wikidata if necessary
+categories:    # please select one or more of the following categories by deleting irrelevant lines
+  - Q7397       # software
