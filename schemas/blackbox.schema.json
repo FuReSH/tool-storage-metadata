@@ -1,7 +1,42 @@
 {
     "$schema": "https://json-schema.org/draft/2020-12/schema",
-    "$id": "https://github.com/FuReSH/Werkzeugregal/schemas/blackbox.schema.json",
+    "$id": "https://raw.githubusercontent.com/FuReSH/tool-storage-metadata/main/schemas/blackbox.schema.json",
     "title": "Blackbox",
-    "description": "Any digital tool having input, processing step and output",
-    "type": "object"
+    "description": "A schema to rudimentary describe a digital tool as a blackbox having input, processing steps and output",
+    "type": "object",
+    "properties": {
+      "name": {
+          "description": "The unique 'speaking' id of the blackbox that is related to a tool. Always lowercase and hyphenated and must match filename.",
+          "type": "string",
+          "pattern": "^[a-z]{1}[a-z-]+(\\.blackbox)$"
+      },
+      "tadirah-broader-concept": {
+        "desciption": "",
+        "type": "array",
+        "uniqueItems": true,
+        "minItems": 1,
+        "items": {
+          "type": "string",
+          "pattern": "^(https://vocabs\\.dariah\\.eu/tadirah/)([a-zA-Z]+)$",
+          "format": "uri"
+        },
+        "additionalProperties": false
+       },
+      "input": { "description": "", "$ref": "#/$defs/tools" },
+      "processing": { "description": "", "$ref": "#/$defs/tools" },
+      "output": { "description": "", "$ref": "#/$defs/tools" }
+    },
+  "additionalProperties": false,
+  "required": [ "name", "input", "processing", "output" ],
+
+  "$defs": {
+    "tools": {
+        "type": "array",
+        "uniqueItems": true,
+        "minItems": 1,
+        "items": {
+          "$ref": "https://raw.githubusercontent.com/FuReSH/tool-storage-metadata/main/schemas/tool.schema.json#/properties/name"
+        }
+    }
   }
+}

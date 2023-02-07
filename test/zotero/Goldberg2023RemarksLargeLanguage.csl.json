@@ -1,0 +1,37 @@
+{
+    "items": [
+        {
+            "id": "12028027/625DYLG9",
+            "type": "webpage",
+            "title": "Some remarks on Large Language Models",
+            "container-title": "Gist",
+            "abstract": "GitHub Gist: instantly share code, notes, and snippets.",
+            "URL": "https://gist.github.com/yoavg/59d174608e92e845c8994ac2e234c8a9",
+            "note": "Citation Key: Goldberg2023RemarksLargeLanguage",
+            "language": "en",
+            "author": [
+                {
+                    "family": "Goldberg",
+                    "given": "Yoav"
+                }
+            ],
+            "issued": {
+                "date-parts": [
+                    [
+                        2023,
+                        1
+                    ]
+                ]
+            },
+            "accessed": {
+                "date-parts": [
+                    [
+                        2023,
+                        1,
+                        4
+                    ]
+                ]
+            }
+        }
+    ]
+}

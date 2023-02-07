@@ -1,10 +1,10 @@
 ---
 title: "Setcard für Werkzeuge"
 subtitle: "template"
-author: 
+author:
    - Till Grallert
    - Sophie Eckenstaler
-date: 2022-04-07 
+date: 2022-04-07
 licence: https://creativecommons.org/licenses/by/4.0/
 bibliography: ../assets/bibliography/FuReSH.csl.json
 suppress-bibliography: true
@@ -20,33 +20,36 @@ tags:
 ::: columns
 :::: column
 
-- [ ] [[Methode]] 
+- [ ] [[Methode]]
 - [ ] [[Konzept]]
-- [x] [[Format]] 
+- [ ] [[Format]]
 - [ ] [[Sprache]]
 
 ::::
 :::: column
 
-- [ ] [[Platform]]
-- [ ] [[Software]]
-- [ ] Organisation
+- [x] [[Platform]]
+- [x] [[Software]]
+- [x] Organisation
 - [ ] Standard
 
 ::::
 :::
 
-Jede Datei hat eine interne Struktur und Regeln, wie diese zu lesen ist. Um Computern von vornherein mitzuteilen um welches Dateiformat es sich bei einer Datei handelt, gibt es *Dateiendungen* (z.b. `.txt`). Grundsätzlich wird zwischen *binären* und *text* Dateien unterschieden.
-   
+<!-- kurze Beschreibung? -->
+
 # Wofür brauche ich das?
 # Ist das wichtig?
-Ja
-# Wie sieht das aus?
 
+# Wie sieht das aus?
 
 <!-- code snippets oder icon -->
 
+```xml
+
+```
 # Was brauche ich dafür?
 # Wo finde ich mehr dazu?
 
-- [fileformat.com](https://www.fileformat.com): Webseite zur schnellen Suche nach Dateiformaten
+   - [[docker_draft]] lokaler Link
+   - [externer Link](docker_draft.md)

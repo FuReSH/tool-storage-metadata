@@ -1,7 +1,0 @@
-{
-    "$schema": "https://json-schema.org/draft/2020-12/schema",
-    "$id": "https://github.com/FuReSH/Werkzeugregal/schemas/set-up.schema.json",
-    "title": "Blackbox",
-    "description": "Description of various installations and set up's for a tool",
-    "type": "object"
-  }

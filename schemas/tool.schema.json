@@ -1,57 +1,103 @@
 {
     "$schema": "https://json-schema.org/draft/2020-12/schema",
-    "$id": "https://github.com/FuReSH/Werkzeugregal/schemas/tool.schema.json",
+    "$id": "https://raw.githubusercontent.com/FuReSH/tool-storage-metadata/main/schemas/tool.schema.json",
     "title": "Tool",
     "description": "A schema to rudimentary describe a digital tool used for research in the humanities",
     "type": "object",
     "properties": {
-        // problem: entities can have multiple names and in multiple languages
-        // proposal:
-        //  - allow multiple names
-        //  - each with a `lang` child, which should follow the BCP-47 standard
         "name": {
-            "description": "The title of the digital tool",
-            "type": ["string"]
-        },
-        // problem: acronyms need expansions
-        "acronym": {
-            "description": "",
-            "type": ["string"]
+            "description": "The unique 'speaking' id of the tool. Always lowercase and hyphenated and must match filename.",
+            "type": "string",
+            "pattern": "^[a-z]{1}[a-z-]+(\\.tool)$"
         },
         "image": {
-            "description": "URL's of the logo in Wikimedia Commons",
-            "type": "object",
-            "patternProperties": {
-                "(svg|png|jpg|jpeg|tiff)": {
-                    "type": "string",
-                    "pattern": "^(https://upload.wikimedia.org/wikipedia/commons/).+\\.(svg|png|jpg|jpeg|tiff)$",
-                    "format": "uri"
-                }                
-            },
-            "additionalProperties": false           
+            "description": "URLs of the logo in Wikimedia Commons",
+            "type": "array",
+            "uniqueItems": true,
+            "minItems": 1,
+            "items": {
+                "type": "object",
+                "patternProperties": {
+                    "(svg|png|jpg|jpeg)": {
+                        "type": "string",
+                        "pattern": "^(https://upload\\.wikimedia\\.org/wikipedia/commons/).+\\.(svg|png|jpg|jpeg)$",
+                        "format": "uri"
+                    }
+                },
+                "additionalProperties": false
+            }
         },
-        "wikidataId": {
+        "wikidata-id": {
             "description": "Unique Wikidata identifier. Starts always with prefix Q",
             "type": "string",
             "pattern": "^Q[0-9]+"
         },
-        "category": {
-            "description": "Our tool set kit",
+         "qr-code": {
+            "description": "",
             "type": "array",
+            "uniqueItems": true,
+            "minItems": 1,
+            "items": {
+                "type": "object",
+                "patternProperties": {
+                    "(svg|png|jpg|jpeg)": {
+                        "type": "string",
+                        "pattern": "^(https://raw\\.githubusercontent\\.com/FuReSH/tool-storage-metadata/main/assets/qr-code/)[a-z]{1}[a-z-]+(\\.qr\\.(svg|png|jpg|jpeg))$",
+                        "format": "uri"
+                    }
+                },
+                "additionalProperties": false
+            }
+         },
+        "categories": { "$ref": "#/$defs/category-data" },
+        "set-up": { "$ref": "#/$defs/set-up-data" }
+    },
+    "additionalProperties": false,
+    "required": [ "name", "wikidata-id", "categories" ],
+
+    "$defs": {
+        "category-data": {
+          "description": "These categories are our tool boxes which are used for classification. Expects Wikidata identifiers.",
+            "type": "array",
+            "uniqueItems": true,
+            "minItems": 1,
             "items": {
                 "type": "string",
                 "enum": [
-                    "software", 
-                    "format", 
-                    "programming language", 
-                    "concept",
-                    "method",
-                    "interface",
-                    "library"
+                    "Q17737",
+                    "Q1799072",
+                    "Q1438073",
+                    "Q7397",
+                    "Q95001953",
+                    "Q3966",
+                    "Q9143",
+                    "Q2085518",
+                    "Q151885"
                 ]
-            }             
-        }        
-    },
-    "additionalProperties": false,
-    "required": [ "name", "wikidataId", "category" ]
+            }
+        },
+        "set-up-data": {
+            "desciption": "",
+            "type": "array",
+            "uniqueItems": true,
+            "minItems": 1,
+            "items": {
+                "type": "object",
+                "properties": {
+                    "set-up-type": {
+                        "type": "string",
+                        "enum": [
+                            "docker",
+                            "local"
+                        ]
+                    },
+                    "content": {
+
+                    }
+                },
+                "additionalProperties": false,
+                "required": [ "set-up-type", "content" ]
+            }
+        }
+    }
 }

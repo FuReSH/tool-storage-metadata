@@ -2,7 +2,7 @@
 title: "Template für Werkzeuge"
 subtitle: "Notizen"
 author: Till Grallert
-date: 2022-04-04 
+date: 2022-04-04
 ORCID: orcid.org/0000-0002-5739-8094
 ---
 

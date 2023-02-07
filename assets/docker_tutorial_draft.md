@@ -1,7 +1,7 @@
 ---
 title: "Docker"
 subtitle: "Tutorial"
-author: 
+author:
     Till Grallert
 affiliation: Future e-Research Support in the Humanities, Humboldt-Universität zu Berlin
 date: 2022-04-06
@@ -15,4 +15,3 @@ tags:
     - Container
     - Tutorial
 ---
-

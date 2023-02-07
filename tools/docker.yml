@@ -1,9 +1,0 @@
----
-# yaml-language-server: $schema=../schemas/tool.schema.json
-name: Docker
-image:
-  svg: https://upload.wikimedia.org/wikipedia/commons/4/4e/Docker_%28container_engine%29_logo.svg
-wikidataId: Q15206305
-category:
-  - software
-  - format
