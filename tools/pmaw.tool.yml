@@ -1,8 +1,6 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/FuReSH/tool-storage-metadata/main/schemas/tool.schema.json
 ---
 name: snscrape.tool
-image:         # can be empty. URI for an image on Wikimedia Commons
 wikidata-id: Q113818500 # Unique Wikidata identifier. Please look it up and create a new item on Wikidata if necessary
-qr-code:       # can be empty. URI for a QR Code. will be automatically created
 categories:    # please select one or more of the following categories by deleting irrelevant lines
   - Q7397       # software
