@@ -9,37 +9,9 @@ on:
      - 'test/**/*.yml'
 
 jobs:
-  check:
-    runs-on: ubuntu-latest
-    name: Check changed-files
-    outputs:
-      changed: ${{ steps.output1.outputs.changed}}
-      yml: ${{ steps.output2.outputs.yml }}
-    steps:
-      - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-      - name: Get changed files in the test folder
-        id: changed-files
-        uses: tj-actions/changed-files@v35
-        with:
-          files: |
-            test/tools/*.{yml,yaml}
-            test/blackboxes/*.{yml,yaml}
-      - name: Output is changed
-        id: output1
-        run: echo "changed=${{ steps.changed-files-specific.outputs.any_changed }}" >> $GITHUB_OUTPUT
-      - name: Output changed files
-        id: output2
-        run: echo "yml=${{ steps.changed-files.outputs.all_changed_files }}" >> $GITHUB_OUTPUT
-
   test:
       runs-on: ubuntu-latest
       name: Test yaml-data
-      # require the first job to have ran
-      needs: check
-      # only run there are changes in the test folder
-      if: needs.check.outputs.changed == 'true'
       strategy:
         # You can use PyPy versions in python-version.
         # For example, pypy-2.7 and pypy-3.8
@@ -47,8 +19,6 @@ jobs:
           python-version: ["3.8", "3.9", "3.10", "3.11"]
       steps:
         - uses: actions/checkout@v3
-        - name: echo output
-          run: echo ${{ needs.check.outputs.yml }}
         - name: Set up Python ${{ matrix.python-version }}
           uses: actions/setup-python@v4
           with:
@@ -59,8 +29,6 @@ jobs:
         - name: Install check-jsonschema tool
           run: pip install check-jsonschema
         - name: Validate tool or blackbox test data
-          #if: contains(steps.changed-files.outputs.modified_files, '*.tool.yml')
-          run: check-jsonschema --schemafile ${GITHUB_WORKSPACE}/schemas/tool.schema.json ${GITHUB_WORKSPACE}/test/tools/*
-        #- name: Validate blackbox test data
-          #if: contains(steps.changed-files.outputs.modified_files, '*.blackbox.yml')
-          #run: check-jsonschema --check-metaschema ${GITHUB_WORKSPACE}/schemas/blackbox.schema.json ${GITHUB_WORKSPACE}/test/blackboxes/*
+          run: |
+            check-jsonschema --schemafile ${GITHUB_WORKSPACE}/schemas/tool.schema.json ${GITHUB_WORKSPACE}/test/tools/*
+            check-jsonschema --schemafile ${GITHUB_WORKSPACE}/schemas/blackbox.schema.json ${GITHUB_WORKSPACE}/test/blackboxes/*
