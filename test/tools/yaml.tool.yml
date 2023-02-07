@@ -4,8 +4,6 @@ name: yaml.tool
 image:
     - svg: https://upload.wikimedia.org/wikipedia/commons/5/5a/Official_YAML_Logo.svg
       png: https://upload.wikimedia.org/wikipedia/commons/5/5a/Official_YAML_Logo.png
-      width: 200
-      height: 200
 wikidata-id: Q281876
 categories:
   - Q95001953
