@@ -20,3 +20,22 @@ tags:
 # 1. Adding new tools
 
 The user creates a new `YAML` file in the `tools/` folder by creating a copy of [`templates/template.tool.yml`](templates/template.tool.yml). If the user has set up her IDE to validate YAML files, this file will be automatically validated with the help of a linked JSON schema during the editing process. This is highly recommended.
+
+## Link to Wikidata
+
+## Create new Wikidata Item
+
+All Wikidata items need at least a label and a short prose description
+
+### Software
+
+The minimal required statements for software are
+
+- [instance of](): [Software](https://www.wikidata.org/wiki/Q7397)
+- [programmed in](): 
+- [software version identifier]()
+    + [publication date]()
+    + reference
+- [source code repository]
+    + [version control system]()
+    + [web interface software]()
