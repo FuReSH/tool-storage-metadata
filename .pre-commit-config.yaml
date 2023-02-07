@@ -1,4 +1,4 @@
-repos:
+repos: 
 - repo: https://github.com/python-jsonschema/check-jsonschema
   rev: 0.21.0
   hooks:
