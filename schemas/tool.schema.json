@@ -32,6 +32,11 @@
             "type": "string",
             "pattern": "^Q[0-9]+"
         },
+        "tadirah-id": {
+            "description": "Unique TaDiRAH identifier.",
+            "type": "string",
+            "pattern": "[a-z]{1}[a-zA-Z]+"
+        },
          "qr-code": {
             "description": "",
             "type": "array",
