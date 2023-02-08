@@ -23,7 +23,11 @@ The user creates a new `YAML` file in the `tools/` folder by creating a copy of 
 
 ## Link to Wikidata
 
-## Create new Wikidata Item
+### Reconciliation with Wikidata
+
+- Use OpenRefine for a large set of tools, such as TaPOR
+
+# 2. Create new Wikidata Item
 
 All Wikidata items need at least a label and a short prose description
 
@@ -32,10 +36,12 @@ All Wikidata items need at least a label and a short prose description
 The minimal required statements for software are
 
 - [instance of](): [Software](https://www.wikidata.org/wiki/Q7397)
-- [programmed in]():
+- [programmed in](https://www.wikidata.org/wiki/Property:P277):
 - [software version identifier]()
     + [publication date]()
     + reference
 - [source code repository]
-    + [version control system]()
-    + [web interface software]()
+    + [version control system](): e.g. "Git"
+    + [web interface software](): e.g. "GitHub"
+- [reads file format](https://www.wikidata.org/wiki/Property:P1072): e.g. "JSON"
+- [writes file format](https://www.wikidata.org/wiki/Property:P1073): e.g. "RDA"
