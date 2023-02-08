@@ -10,7 +10,7 @@ categories:    # please select one or more of the following categories by deleti
   - Q7397       # software
   - Q3966       # hardware
   - Q9143       # programming language
-  - Q2085518    # format
+  - Q235557     # file format
   - Q151885     # concept
 set-up:        # remove if not needed
   - set-up-type:

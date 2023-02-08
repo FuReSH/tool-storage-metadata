@@ -64,13 +64,13 @@
             "items": {
                 "type": "string",
                 "enum": [
-                    "Q17737",
-                    "Q1799072",
-                    "Q7397",
-                    "Q3966",
-                    "Q9143",
-                    "Q2085518",
-                    "Q151885"
+                    "Q17737", // theory
+                    "Q1799072", // method
+                    "Q7397", // softwaree
+                    "Q3966", // hardware
+                    "Q9143", // programming language
+                    "Q235557", // file format
+                    "Q151885" // concept
                 ]
             }
         },
