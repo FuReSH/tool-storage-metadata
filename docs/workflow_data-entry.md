@@ -26,6 +26,18 @@ The user creates a new `YAML` file in the `tools/` folder by creating a copy of 
 ### Reconciliation with Wikidata
 
 - Use OpenRefine for a large set of tools, such as TaPOR
+    + open local JSON file
+    + enrich this file based on API calls
+        * [GREL](https://openrefine.org/docs/manual/grelfunctions) sample for building a URL from a nummeric value: 
+            - `value.replace(/(\d+)/, 'https://tapor.ca/api/tools/$1')`
+            - the same but cheching for null values first `if(not(value == null), value.replace(/(\d+)/, 'https://tapor.ca/api/tools/$1'), '')`
+        - GREL for joining strings:
+            + `join(['https://tapor.ca/', value], '')` will prefix a partial URL 
+        - GREL for parsing JSON
+            + `parseJson(value).get('key')` will return a value for the selected key
+            + `parseJson(value).key` will return the value of the selected key
+- Select a column for reconciliation, most likely the tool name, and choose `Reconcile -> Start reconciling`. This will open additional options from Wikidata.
+- 
 
 # 2. Create new Wikidata Item
 
@@ -43,5 +55,6 @@ The minimal required statements for software are
 - [source code repository]
     + [version control system](): e.g. "Git"
     + [web interface software](): e.g. "GitHub"
+- [official website]():
 - [reads file format](https://www.wikidata.org/wiki/Property:P1072): e.g. "JSON"
 - [writes file format](https://www.wikidata.org/wiki/Property:P1073): e.g. "RDA"
