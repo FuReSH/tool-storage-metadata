@@ -1,8 +1,0 @@
-# yaml-language-server: $schema=https://raw.githubusercontent.com/FuReSH/tool-storage-metadata/main/schemas/tool.schema.json
----
-name: json.tool
-wikidata-id: Q2063
-image:
-  - svg: https://upload.wikimedia.org/wikipedia/commons/c/c9/JSON_vector_logo.svg
-categories:
-  - Q2085518
