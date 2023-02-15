@@ -67,15 +67,16 @@
             "uniqueItems": true,
             "minItems": 1,
             "items": {
+                "docHint": "enum",
                 "type": "string",
-                "enum": [
-                    "Q17737",
-                    "Q1799072",
-                    "Q7397",
-                    "Q3966",
-                    "Q9143",
-                    "Q235557",
-                    "Q151885"
+                "anyOf": [
+                    {"const": "Q17737", "description": "theory"},
+                    {"const": "Q1799072", "description": "method"},
+                    {"const": "Q7397", "description": "software"},
+                    {"const": "Q3966", "description": "hardware"},
+                    {"const": "Q9143", "description": "programming language"},
+                    {"const": "Q235557", "description": "file format"},
+                    {"const": "Q151885", "description": "concept"}
                 ]
             }
         },

@@ -1,12 +1,12 @@
 # This is a basic validation workflow for TESTING yaml data for tools and blackboxes
 
-name: Last check of YAML test data
+name: last check of YAML test data
 
 on:
   push:
     branches: [ "main" ]
     paths:
-     - 'test/**/*.yml'
+     - 'test/**.yml'
 
 jobs:
   test:
@@ -30,5 +30,17 @@ jobs:
           run: pip install check-jsonschema
         - name: Validate tool or blackbox test data
           run: |
-            check-jsonschema -v --schemafile ${GITHUB_WORKSPACE}/schemas/tool.schema.json ${GITHUB_WORKSPACE}/test/tools/*
-            check-jsonschema -v --schemafile ${GITHUB_WORKSPACE}/schemas/blackbox.schema.json ${GITHUB_WORKSPACE}/test/blackboxes/*
+            # check if tool and blackbox directories exist
+            DIR_TOOLS="test/tools"
+            DIR_BACKBOXES="test/blackboxes"
+            # if exist, validate all yaml files in the directories
+            if[ -d "$DIR_TOOLS" ]; then
+              check-jsonschema -v --schemafile schemas/tool.schema.json $DIR_TOOLS/*
+            else
+              echo "Warning: '$DIR_TOOLS' NOT found."
+            fi
+            if[ -d "$DIR_BACKBOXES" ]; then
+              check-jsonschema -v --schemafile schemas/blackbox.schema.json $DIR_BACKBOXES/*
+            else
+              echo "Warning: '$DIR_BLACKBOXES' NOT found."
+            fi
