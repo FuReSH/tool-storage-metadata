@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/FuReSH/tool-storage-metadata/main/schemas/tool.schema.json
 ---
-name: yaml.tool
+name: yaml
 image:
   - svg: https://upload.wikimedia.org/wikipedia/commons/5/5a/Official_YAML_Logo.svg
     png: https://upload.wikimedia.org/wikipedia/commons/5/5a/Official_YAML_Logo.png
