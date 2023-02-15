@@ -2,11 +2,9 @@ name: "generate QR code"
 # the trigger
 on: # what are the actions that can be addressed here?
   push:
-    branches: # should this be limited to a specific branch?
-      - 'main'
-      - 'till'
+    branches: [ "till" ]
     paths:
-      - 'test/**/*.tool.yml'
+     - 'test/**/*.yml'
 # the job
 jobs:
   qr-code:
