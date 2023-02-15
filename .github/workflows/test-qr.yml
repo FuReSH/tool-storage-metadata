@@ -6,7 +6,7 @@ on: # what are the actions that can be addressed here?
       - 'main'
       - 'till'
     paths:
-      - '**.tool.yml'
+      - 'test/**/*.tool.yml'
 # the job
 jobs:
   qr-code:
