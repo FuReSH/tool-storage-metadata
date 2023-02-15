@@ -68,7 +68,7 @@ Weitere Informationen bzw. andere Arten von Informationen zu Werkzeugen werden i
 
 ## Unser Werkzeugbegriff
 
-- Methoden bzw. **Verfahren** sind durch **Theorien** informiert und haben einen *Zweck*. 
+- Methoden bzw. **Verfahren** sind durch **Theorien** informiert und haben einen *Zweck*.
 - **Verfahren** werden in (mehreren Schichten von) **Software** implementiert, die je eigene Anforderungen an **Hardware** stellt, und mit **Formaten** interagiert (lesen, schreiben).
 - **Software** ist in **Sprachen** geschrieben und benötigt im fall von CLIs **Sprachen** zur Interaktion.
 - **Verfahren**, **Sprachen** und **Formate** bedienen sich und implementieren abstrakte **Konzepte**

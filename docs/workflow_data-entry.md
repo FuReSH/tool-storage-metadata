@@ -49,6 +49,7 @@ The minimal required statements for software are
 
 - [instance of](): [Software](https://www.wikidata.org/wiki/Q7397)
 - [programmed in](https://www.wikidata.org/wiki/Property:P277):
+- [depends on software](https://www.wikidata.org/wiki/Property:P1547):
 - [software version identifier]()
     + [publication date]()
     + reference
