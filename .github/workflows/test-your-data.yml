@@ -31,16 +31,16 @@ jobs:
         - name: Validate tool or blackbox test data
           run: |
             # check if tool and blackbox directories exist
-            DIR_TOOLS="'${GITHUB_WORKSPACE}'/test/tools"
-            DIR_BLACKBOXES="'${GITHUB_WORKSPACE}'/test/blackboxes"
+            DIR_TOOLS="test/tools"
+            DIR_BLACKBOXES="test/blackboxes"
             # if exist, validate all yaml files in the directories
-            if[ -d "$DIR_TOOLS" ]
+            if[ -d "${GITHUB_WORKSPACE}/$DIR_TOOLS" ]
             then
               check-jsonschema -v --schemafile ${GITHUB_WORKSPACE}/schemas/tool.schema.json $DIR_TOOLS/*
             else
               echo "Warning: '$DIR_TOOLS' NOT found."
             fi
-            if[ -d "$DIR_BACKBOXES" ]
+            if[ -d "${GITHUB_WORKSPACE}/$DIR_BLACKBOXES" ]
             then
               check-jsonschema -v --schemafile ${GITHUB_WORKSPACE}/schemas/blackbox.schema.json $DIR_BLACKBOXES/*
             else
