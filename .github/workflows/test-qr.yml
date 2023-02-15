@@ -2,14 +2,24 @@ name: "generate QR code"
 # the trigger
 on: # what are the actions that can be addressed here?
   pull_request:
-  workflow_dispatch: # enables this workflow to be manually triggered
-  push:
     branches: # should this be limited to a specific branch?
       - main
       - till
     paths:
       # this specifies the path of the file(s) that have to have been committed
       # for triggering this action
+      - '*.tool.yml'
+  workflow_dispatch: # enables this workflow to be manually triggered
+    branches: # should this be limited to a specific branch?
+      - main
+      - till
+    paths:
+      - '*.tool.yml'
+  push:
+    branches: # should this be limited to a specific branch?
+      - main
+      - till
+    paths:
       - '*.tool.yml'
 # the job
 jobs:
