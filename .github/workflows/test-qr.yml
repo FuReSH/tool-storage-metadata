@@ -33,7 +33,7 @@ jobs:
           output_dir="./assets/qr-codes"
           # base url for our tool repository
           baseurl="https://furesh.github.io/tool-storage-metadata/tools"
-          for fullpath in ${{ steps.get_diff_files.outputs.files }}; do
+          for fullpath in ${{ steps.files_changed.outputs.files }}; do
             # check for yaml files only
             if [[ "$fullpath" == *\.y*ml ]]
             then
