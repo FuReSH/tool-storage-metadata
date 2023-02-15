@@ -1,7 +1,10 @@
 name: "generate QR code"
 # the trigger
 on: # what are the actions that can be addressed here?
-  push:
+  push: # even though this should be triggered by changes to any branch, it currently only works on 'main'
+    paths:
+      - '**.tool.yml'
+  pull_request:
     paths:
       - '**.tool.yml'
 # the job
@@ -36,8 +39,15 @@ jobs:
             then
               filename="${fullpath##*/}"    # remove the path
               base=${filename%%.*}         # get the filename without the extension
+              echo "generating QR code for new tool: $base"
               curl qrcode.show -d $baseurl/$base.html \
                   -H "Accept: image/jpeg" \
                   --output $output_dir/$base.jpg
             fi
           done
+      # commit changes
+      # this step automatically commits changes
+      - name: commit changes
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "Github actions: add QR codes for new tool"
