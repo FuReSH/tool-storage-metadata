@@ -18,10 +18,10 @@ for fullpath in $input_dir/*; do
         # create and save a QR code
         qr_target=$baseurl/$name.html
         qr_path=$output_dir/qr-codes/$name.jpg
-        # echo "Creating and saving QR code for $name ($wd_id)"
-        # curl qrcode.show -d $qr_target \
-        #     -H "Accept: image/jpeg" \
-        #     --output $qr_path
+        echo "Creating and saving QR code for $name ($wd_id)"
+        curl qrcode.show -d $qr_target \
+            -H "Accept: image/jpeg" \
+            --output $qr_path --silent
         # update the yaml
         echo "Updating input YAML with path to saved QR code"
         yq -i ".qr-code = \"$qr_path\"" $fullpath
@@ -32,8 +32,7 @@ for fullpath in $input_dir/*; do
         # potentially add further conditions to the query
         zot_query="$zot_query&tag=$tag"
         echo "Query Zotero for references tagged with $name"
-        curl "$zot_query" \
-            --output $bib_path
+        curl "$zot_query" --output $bib_path --silent
         # update the yaml
         echo "Updating input YAML with path to saved bibliography"
         yq -i ".bibliography = \"$bib_path\"" $fullpath
