@@ -3,10 +3,10 @@ name: "generate QR code"
 on: # what are the actions that can be addressed here?
   push: # even though this should be triggered by changes to any branch, it currently only works on 'main'
     paths:
-      - '**.tool.yml'
+      - 'tools/**.tool.yml'
   pull_request:
     paths:
-      - '**.tool.yml'
+      - 'tools/**.tool.yml'
 # the job
 jobs:
   qr-code:
@@ -30,7 +30,7 @@ jobs:
         # use "run" to execute shell commands
         run: |
           #  path to output directory
-          output_dir="./assets/qr-codes"
+          output_dir="assets/qr-codes"
           # base url for our tool repository
           baseurl="https://furesh.github.io/tool-storage-metadata/tools"
           for fullpath in ${{ steps.files_changed.outputs.files }}; do
