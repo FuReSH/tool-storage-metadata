@@ -6,6 +6,7 @@ on: # what are the actions that can be addressed here?
   push:
     branches: # should this be limited to a specific branch?
       - main
+      - till
     paths:
       # this specifies the path of the file(s) that have to have been committed
       # for triggering this action
