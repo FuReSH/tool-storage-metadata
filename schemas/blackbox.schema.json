@@ -8,7 +8,7 @@
       "name": {
           "description": "The unique 'speaking' id of the blackbox that is related to a tool. Always lowercase and hyphenated and must match filename.",
           "type": "string",
-          "pattern": "^[a-z]{1}[a-z-]+(\\.blackbox)$"
+          "pattern": "^[a-z]{1}[a-z-]+"
       },
       "tadirah-broader-concept": {
         "desciption": "",

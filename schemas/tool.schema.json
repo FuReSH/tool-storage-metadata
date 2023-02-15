@@ -8,7 +8,7 @@
         "name": {
             "description": "The unique 'speaking' id of the tool. Always lowercase and hyphenated and must match filename.",
             "type": "string",
-            "pattern": "^[a-z]{1}[a-z-]+(\\.tool)$"
+            "pattern": "^[a-z]{1}[a-z-]+[a-z]{1}$"
         },
         "image": {
             "description": "URLs of the logo in Wikimedia Commons",
