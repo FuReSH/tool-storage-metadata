@@ -1,0 +1,53 @@
+name: "generate QR code"
+# the trigger
+on: # what are the actions that can be addressed here?
+  push: # even though this should be triggered by changes to any branch, it currently only works on 'main'
+    paths:
+      - 'tools/**.tool.yml'
+  pull_request:
+    paths:
+      - 'tools/**.tool.yml'
+# the job
+jobs:
+  qr-code:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      # checks out a copy of your repository to the runner
+      - name: check out repo
+        uses: actions/checkout@v3
+      # find only those files newly committed to the repo
+      - name: Gather files changed
+        uses: trilom/file-changes-action@v1.2.4
+        id: files_changed
+        with:
+          # optional output format: 'json', ' ', ','
+          # So that `steps.files_changed.outputs.files` becomes a string like `foo.js path/bar.md`
+          # can be accessed via ${{ steps.files_changed.outputs.files }}
+          output: ' '
+      # generate a QR code for those files
+      - name: generate QR code
+        # use "run" to execute shell commands
+        run: |
+          #  path to output directory
+          output_dir="assets/qr-codes"
+          # base url for our tool repository
+          baseurl="https://furesh.github.io/tool-storage-metadata/tools"
+          for fullpath in ${{ steps.files_changed.outputs.files }}; do
+            # check for yaml files only
+            if [[ "$fullpath" == *\.y*ml ]]
+            then
+              filename="${fullpath##*/}"    # remove the path
+              base=${filename%%.*}         # get the filename without the extension
+              echo "generating QR code for new tool: $base"
+              curl qrcode.show -d $baseurl/$base.html \
+                  -H "Accept: image/jpeg" \
+                  --output $output_dir/$base.jpg
+            fi
+          done
+      # commit changes
+      # this step automatically commits changes
+      - name: commit changes
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "Github actions: add QR codes for new tool"
