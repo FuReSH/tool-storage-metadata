@@ -2,6 +2,9 @@ name: "generate QR code"
 # the trigger
 on: # what are the actions that can be addressed here?
   workflow_dispatch:
+  push:
+    paths:
+      - '**.tool.yml'
 # the job
 jobs:
   qr-code:
