@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/FuReSH/tool-storage-metadata/main/schemas/tool.schema.json
 ---
-name:          twarc.tool
+name: twarc
 wikidata-id: Q112795567
 categories:    # please select one or more of the following categories by deleting irrelevant lines
   - Q7397       # software

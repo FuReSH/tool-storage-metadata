@@ -1,6 +1,0 @@
-# generate yaml template for tool from $schema=https://raw.githubusercontent.com/FuReSH/tool-storage-metadata/main/schemas/tool.schema.json
----
-name: test.tool
-wikidata-id: Q1
-categories:
-  - Q9143

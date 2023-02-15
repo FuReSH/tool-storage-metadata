@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/FuReSH/tool-storage-metadata/main/schemas/tool.schema.json
 ---
-name: voyanttools.tool
+name: voyanttools
 image:
   - png: https://upload.wikimedia.org/wikipedia/commons/b/bf/Logo_Voyant_Tools.png
 wikidata-id: Q28405731
