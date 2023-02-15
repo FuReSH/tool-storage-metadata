@@ -27,6 +27,7 @@ for fullpath in $input_dir/*; do
         yq -i ".qr-code = \"$qr_path\"" $fullpath
         # query Zotero and save the output
         bib_path="$output_dir/bibliography/$name.bib"
+        # as we use a read-only key, we can safely hardcode it into this script
         zot_query="https://api.zotero.org/groups/4598521/items?v=3&key=8Rc9JhCEQvTzX0GSDi5sYIFX&format=bibtex"
         tag="tutorial:%20$name%20||%20topic:%20$name%20||%20uses:%20$name"
         # potentially add further conditions to the query
