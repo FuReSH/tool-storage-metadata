@@ -1,0 +1,7 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/FuReSH/tool-storage-metadata/main/schemas/tool.schema.json
+---
+name: grel        # this is free-form string field. Please provide a unique name without any whitespace
+wikidata-id: Q105079174 # Unique Wikidata identifier. Please look it up and create a new item on Wikidata if necessary
+categories:    # please select one or more of the following categories by deleting irrelevant lines
+  - Q9143       # programming language
+tadirah-id: querying
