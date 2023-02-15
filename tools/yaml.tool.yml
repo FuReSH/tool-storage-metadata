@@ -1,0 +1,9 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/FuReSH/tool-storage-metadata/main/schemas/tool.schema.json
+---
+name: yaml.tool
+image:
+  - svg: https://upload.wikimedia.org/wikipedia/commons/5/5a/Official_YAML_Logo.svg
+    png: https://upload.wikimedia.org/wikipedia/commons/5/5a/Official_YAML_Logo.png
+wikidata-id: Q281876
+categories:
+  - Q9143
