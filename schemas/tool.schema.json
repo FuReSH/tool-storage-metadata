@@ -32,10 +32,25 @@
             "type": "string",
             "pattern": "^Q[0-9]+"
         },
-        "tadirah-id": {
-            "description": "Unique TaDiRAH identifier.",
-            "type": "string",
-            "pattern": "[a-z]{1}[a-zA-Z]+"
+        "classification": {
+            "description": "Standard and internal vocabularies we used to classify our tools.",
+            "type": "object",
+            "properties": {
+                "smsp-categories": { "$ref": "#/$defs/smsp-category-data" },
+                "tadirah": { "$ref": "#/$defs/tadirah-data" },
+                "if": {
+                    "properties": {
+                        "msp-categories": {
+                            "contains": {
+                                "const": "Q7397"
+                            }
+                        }
+                    }
+                },
+                "then": { "required": [ "msp-categories", "tadirah" ] },
+                "else": { "required": [ "msp-categories" ] }
+
+            }
         },
          "qr-code": {
             "description": "",
@@ -54,15 +69,17 @@
                 "additionalProperties": false
             }
          },
-        "categories": { "$ref": "#/$defs/category-data" },
         "set-up": { "$ref": "#/$defs/set-up-data" }
     },
     "additionalProperties": false,
-    "required": [ "name", "wikidata-id", "categories" ],
+    "required": [ "name", "wikidata-id", "classification" ],
+
 
     "$defs": {
-        "category-data": {
-          "description": "These categories are our tool boxes which are used for classification. Expects Wikidata identifiers.",
+        "smsp-category-data": {
+            "title": "Taxonomy of Scholarly Makerspace (smsp) toolboxes, used for internal classification.",
+          "description": "Expects Wikidata identifiers.",
+          "examples": [ "Q17737", "Q1799072", "Q7397", "Q3966" ],
             "type": "array",
             "uniqueItems": true,
             "minItems": 1,
@@ -79,6 +96,26 @@
                     {"const": "Q151885", "description": "concept"}
                 ]
             }
+        },
+        "tadirah-data": {
+            "title": "Taxonomy of Digital Research Activities in the Humanities (tadirah).",
+            "description": "Expects unique TaDiRAH identifiers. See https://vocabs.dariah.eu/tadirah/en/ for a list of all available identifiers.",
+            "examples": [ "posTagging", "namedEntityRecognition"],
+            "type": "object",
+            "properties": {
+                "api-base-url": { "const": "https://vocabs.dariah.eu/tadirah/" },
+                "identifiers": {
+                    "type": "array",
+                    "uniqueItems": true,
+                    "minItems": 1,
+                    "items": {
+                        "type": "string",
+                        "pattern": "^[a-zA-Z]+$"
+                    }
+                }
+            },
+            "additionalProperties": false,
+            "required": [ "identifiers" ]
         },
         "set-up-data": {
             "desciption": "",

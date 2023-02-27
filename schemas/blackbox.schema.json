@@ -10,17 +10,7 @@
           "type": "string",
           "pattern": "^[a-z]{1}[a-z-]+[a-z]{1}$"
       },
-      "tadirah-broader-concept": {
-        "desciption": "",
-        "type": "array",
-        "uniqueItems": true,
-        "minItems": 1,
-        "items": {
-          "type": "string",
-          "pattern": "[a-z]{1}[a-zA-Z]+"
-        },
-        "additionalProperties": false
-       },
+      "tadirah-activity": { "description": "", "$ref": "https://raw.githubusercontent.com/FuReSH/tool-storage-metadata/main/schemas/tool.schema.json#/properties/classification/properties/tadirah" },
       "input": { "description": "", "$ref": "#/$defs/tools" },
       "processing": { "description": "", "$ref": "#/$defs/tools" },
       "output": { "description": "", "$ref": "#/$defs/tools" }
