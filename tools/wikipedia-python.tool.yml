@@ -2,5 +2,6 @@
 ---
 name: wikipedia-python
 wikidata-id: Q107384501 # Unique Wikidata identifier. Please look it up and create a new item on Wikidata if necessary
-categories:    # please select one or more of the following categories by deleting irrelevant lines
-  - Q7397       # software
+classification:
+  smsp-categories:
+    - Q7397

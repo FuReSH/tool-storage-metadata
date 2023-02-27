@@ -2,5 +2,6 @@
 ---
 name: twarc
 wikidata-id: Q112795567
-categories:    # please select one or more of the following categories by deleting irrelevant lines
-  - Q7397       # software
+classification:
+  smsp-categories:
+    - Q7397

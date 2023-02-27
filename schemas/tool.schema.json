@@ -40,15 +40,15 @@
                 "tadirah": { "$ref": "#/$defs/tadirah-data" },
                 "if": {
                     "properties": {
-                        "msp-categories": {
+                        "smsp-categories": {
                             "contains": {
                                 "const": "Q7397"
                             }
                         }
                     }
                 },
-                "then": { "required": [ "msp-categories", "tadirah" ] },
-                "else": { "required": [ "msp-categories" ] }
+                "then": { "required": [ "smsp-categories", "tadirah" ] },
+                "else": { "required": [ "smsp-categories" ] }
 
             }
         },

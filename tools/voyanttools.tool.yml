@@ -4,5 +4,6 @@ name: voyanttools
 image:
   - png: https://upload.wikimedia.org/wikipedia/commons/b/bf/Logo_Voyant_Tools.png
 wikidata-id: Q28405731
-categories:
-  - Q7397
+classification:
+  smsp-categories:
+    - Q7397

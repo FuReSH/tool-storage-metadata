@@ -2,5 +2,6 @@
 # yaml-language-server: $schema=../schemas/tool.schema.json
 name: peripleo
 wikidata-id: Q74693165
-categories:
-  - Q7397
+classification:
+  smsp-categories:
+    - Q7397

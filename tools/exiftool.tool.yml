@@ -2,5 +2,6 @@
 ---
 name: exiftool
 wikidata-id: Q5420254
-categories:
-  - Q7397
+classification:
+  smsp-categories:
+    - Q7397
