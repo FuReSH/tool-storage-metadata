@@ -2,6 +2,7 @@
     "$schema": "https://json-schema.org/draft/2020-12/schema",
     "$id": "https://raw.githubusercontent.com/FuReSH/tool-storage-metadata/main/schemas/tool.schema.json",
     "title": "Tool",
+    "version": "0.1.0",
     "description": "A schema to rudimentary describe a digital tool used for research in the humanities",
     "type": "object",
     "properties": {
@@ -14,7 +15,6 @@
             "description": "URLs of the logo in Wikimedia Commons",
             "type": "array",
             "uniqueItems": true,
-            "minItems": 1,
             "items": {
                 "type": "object",
                 "patternProperties": {
@@ -37,26 +37,29 @@
             "type": "object",
             "properties": {
                 "smsp-categories": { "$ref": "#/$defs/smsp-category-data" },
-                "tadirah": { "$ref": "#/$defs/tadirah-data" },
-                "if": {
-                    "properties": {
-                        "smsp-categories": {
-                            "contains": {
-                                "const": "Q7397"
+                "tadirah": { "$ref": "#/$defs/tadirah-data" }
+            },
+            "additionalProperties": false,
+            "if": {
+                "properties": {
+                    "smsp-categories": {
+                        "properties": {
+                            "identifiers": {
+                                "items": {
+                                    "const": "Q7397"
+                                }
                             }
                         }
                     }
                 },
-                "then": { "required": [ "smsp-categories", "tadirah" ] },
-                "else": { "required": [ "smsp-categories" ] }
-
-            }
+                "required": [ "smsp-categories" ]
+            },
+            "then": { "required": [ "tadirah" ] }
         },
          "qr-code": {
             "description": "",
             "type": "array",
             "uniqueItems": true,
-            "minItems": 1,
             "items": {
                 "type": "object",
                 "patternProperties": {
@@ -69,7 +72,7 @@
                 "additionalProperties": false
             }
          },
-        "set-up": { "$ref": "#/$defs/set-up-data" }
+        "set-up": { "$comment": "NOTICE: Incomplete, this subschema need to be declared yet!", "$ref": "#/$defs/set-up-data" }
     },
     "additionalProperties": false,
     "required": [ "name", "wikidata-id", "classification" ],
@@ -78,24 +81,30 @@
     "$defs": {
         "smsp-category-data": {
             "title": "Taxonomy of Scholarly Makerspace (smsp) toolboxes, used for internal classification.",
-          "description": "Expects Wikidata identifiers.",
-          "examples": [ "Q17737", "Q1799072", "Q7397", "Q3966" ],
-            "type": "array",
-            "uniqueItems": true,
-            "minItems": 1,
-            "items": {
-                "docHint": "enum",
-                "type": "string",
-                "anyOf": [
-                    {"const": "Q17737", "description": "theory"},
-                    {"const": "Q1799072", "description": "method"},
-                    {"const": "Q7397", "description": "software"},
-                    {"const": "Q3966", "description": "hardware"},
-                    {"const": "Q9143", "description": "programming language"},
-                    {"const": "Q235557", "description": "file format"},
-                    {"const": "Q151885", "description": "concept"}
-                ]
-            }
+            "description": "Expects Wikidata identifiers.",
+            "examples": [ "Q17737", "Q1799072", "Q7397", "Q3966" ],
+            "type": "object",
+            "properties": {
+                "api-base-url": { "const": "https://www.wikidata.org/w/rest.php/wikibase/v0" },
+                "identifiers": {
+                    "type": "array",
+                    "uniqueItems": true,
+                    "items": {
+                        "docHint": "enum",
+                        "type": "string",
+                        "anyOf": [
+                            {"const": "Q17737", "description": "theory"},
+                            {"const": "Q1799072", "description": "method"},
+                            {"const": "Q7397", "description": "software"},
+                            {"const": "Q3966", "description": "hardware"},
+                            {"const": "Q9143", "description": "programming language"},
+                            {"const": "Q235557", "description": "file format"},
+                            {"const": "Q151885", "description": "concept"}
+                        ]
+                    }
+                }
+            },
+            "additionalProperties": false
         },
         "tadirah-data": {
             "title": "Taxonomy of Digital Research Activities in the Humanities (tadirah).",
@@ -107,10 +116,9 @@
                 "identifiers": {
                     "type": "array",
                     "uniqueItems": true,
-                    "minItems": 1,
                     "items": {
                         "type": "string",
-                        "pattern": "^[a-zA-Z]+$"
+                        "pattern": "^[a-z][a-zA-Z]+$"
                     }
                 }
             },
@@ -121,7 +129,6 @@
             "desciption": "",
             "type": "array",
             "uniqueItems": true,
-            "minItems": 1,
             "items": {
                 "type": "object",
                 "properties": {
