@@ -8,13 +8,14 @@ input_dir="$current_dir/tools"
 output_dir=$input_dir
 # ask for input
 read -p "Please provide a valid Wikidata ID: " input
-# check if the input is a QId
+# check if the input contains a QId
 if [[ $input =~ (Q[0-9]+) ]]; then
+    # extract die Wikidata ID from the input
     wd_id_input=$(echo "$input" | perl -pe 's/^.*(Q\d+).*$/$1/g')
     echo "Input contains the Wikidata ID $wd_id_input"
-    # empty variable for result of check
-    exists=FALSE
     # read all yaml files in the input directory and check if one contains the Wikidata ID
+    # dummy variable for result of check
+    exists=FALSE
     for fullpath in $input_dir/*\.y*ml; do
         # only read files if the Wikidata ID has not yet been found
         if [[ $exists == FALSE ]]; then
@@ -36,7 +37,7 @@ if [[ $input =~ (Q[0-9]+) ]]; then
             -H "accept: application/json" \
             --silent)
         # create a name from the label
-        # read a specific label
+        # read a specific label: English
         name=$(yq '.en' <<< $label)
         # make the label conformant with our naming scheme
         name=$(echo "$name" | perl -pe 's/\W+(\w)/-$1/g')
