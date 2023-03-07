@@ -15,10 +15,10 @@ for fullpath in $input_dir/*; do
         # remove the path
         filename="${fullpath##*/}"
         # get the filename without the extension
-        base=${filename%%.*}
-        echo "generating QR code for new tool: $base"
-        curl qrcode.show -d $baseurl/$base.html \
+        name=${filename%%.*}
+        echo "generating QR code for new tool: $name"
+        curl qrcode.show -d $baseurl/$name.html \
             -H "Accept: image/jpeg" \
-            --output $output_dir/$base.jpg
+            --output $output_dir/$name.jpg
     fi
 done
