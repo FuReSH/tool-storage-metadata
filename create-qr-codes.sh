@@ -3,11 +3,11 @@
 current_dir=$(dirname "${BASH_SOURCE[0]}")
 cd $current_dir && pwd
 # path to input directory
-input_dir="$current_dir/tools"
+input_dir="$current_dir/tmp/tools"
 #  path to output directory
-output_dir="./assets/qr-codes"
+output_dir="./tmp/assets/qr-codes"
 # base url for our tool repository
-baseurl="https://furesh.github.io/tool-storage-metadata/tools"
+baseurl="https://furesh.github.io/tool-storage-interface/tools"
 for fullpath in $input_dir/*; do
     # check for yaml files only
     if [[ "$fullpath" == *\.y*ml ]]
@@ -17,7 +17,7 @@ for fullpath in $input_dir/*; do
         # get the filename without the extension
         base=${filename%%.*}
         echo "generating QR code for new tool: $base"
-        curl qrcode.show -d $baseurl/$base.html \
+        curl qrcode.show -d $baseurl/$base \
             -H "Accept: image/jpeg" \
             --output $output_dir/$base.jpg
     fi

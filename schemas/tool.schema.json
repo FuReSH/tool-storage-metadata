@@ -11,6 +11,11 @@
             "type": "string",
             "pattern": "^[a-z]{1}[a-z-]+[a-z]{1}$"
         },
+        "wikidata-id": {
+            "description": "Unique Wikidata identifier. Starts always with prefix Q",
+            "type": "string",
+            "pattern": "^Q[0-9]+"
+        },
         "image": {
             "description": "URLs of the logo in Wikimedia Commons",
             "type": "array",
@@ -26,11 +31,6 @@
                 },
                 "additionalProperties": false
             }
-        },
-        "wikidata-id": {
-            "description": "Unique Wikidata identifier. Starts always with prefix Q",
-            "type": "string",
-            "pattern": "^Q[0-9]+"
         },
         "classification": {
             "description": "Standard and internal vocabularies we used to classify our tools.",
@@ -85,7 +85,10 @@
             "examples": [ "Q17737", "Q1799072", "Q7397", "Q3966" ],
             "type": "object",
             "properties": {
-                "api-base-url": { "const": "https://www.wikidata.org/w/rest.php/wikibase/v0" },
+                "api-base-url": {
+                    "const": "https://www.wikidata.org/w/rest.php/wikibase/v0",
+                    "readOnly": true
+                },
                 "identifiers": {
                     "type": "array",
                     "uniqueItems": true,
@@ -104,7 +107,8 @@
                     }
                 }
             },
-            "additionalProperties": false
+            "additionalProperties": false,
+            "required": [ "identifiers" ]
         },
         "tadirah-data": {
             "title": "Taxonomy of Digital Research Activities in the Humanities (tadirah).",
@@ -112,7 +116,7 @@
             "examples": [ "posTagging", "namedEntityRecognition"],
             "type": "object",
             "properties": {
-                "api-base-url": { "const": "https://vocabs.dariah.eu/tadirah/" },
+                "api-base-url": { "const": "https://vocabs.dariah.eu/tadirah/", "readOnly": true },
                 "identifiers": {
                     "type": "array",
                     "uniqueItems": true,

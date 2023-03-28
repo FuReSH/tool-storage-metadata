@@ -3,10 +3,10 @@ name: "generate QR code"
 on: # what are the actions that can be addressed here?
   push: # even though this should be triggered by changes to any branch, it currently only works on 'main'
     paths:
-      - 'tools/**.tool.yml'
+      - 'tools/**.yml'
   pull_request:
     paths:
-      - 'tools/**.tool.yml'
+      - 'tools/**.yml'
 # the job
 jobs:
   qr-code:
@@ -30,20 +30,24 @@ jobs:
         # use "run" to execute shell commands
         run: |
           #  path to output directory
-          output_dir="assets/qr-codes"
+          input_dir="$current_dir/tmp/tools"
+          #  path to output directory
+          output_dir="./tmp/assets/qr-codes"
           # base url for our tool repository
-          baseurl="https://furesh.github.io/tool-storage-metadata/tools"
-          for fullpath in ${{ steps.files_changed.outputs.files }}; do
-            # check for yaml files only
-            if [[ "$fullpath" == *\.y*ml ]]
-            then
-              filename="${fullpath##*/}"    # remove the path
-              base=${filename%%.*}         # get the filename without the extension
-              echo "generating QR code for new tool: $base"
-              curl qrcode.show -d $baseurl/$base.html \
-                  -H "Accept: image/jpeg" \
-                  --output $output_dir/$base.jpg
-            fi
+          baseurl="https://furesh.github.io/tool-storage-interface/tools"
+          for fullpath in $input_dir/*; do
+              # check for yaml files only
+              if [[ "$fullpath" == *\.y*ml ]]
+              then
+                  # remove the path
+                  filename="${fullpath##*/}"
+                  # get the filename without the extension
+                  base=${filename%%.*}
+                  echo "generating QR code for new tool: $base"
+                  curl qrcode.show -d $baseurl/$base \
+                      -H "Accept: image/jpeg" \
+                      --output $output_dir/$base.jpg
+              fi
           done
       # commit changes
       # this step automatically commits changes

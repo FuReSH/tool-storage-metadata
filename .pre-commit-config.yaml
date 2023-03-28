@@ -16,10 +16,10 @@ repos:
     - id: check-jsonschema
       name: Validate Tool
       args: ["--schemafile", "schemas/tool.schema.json"]
-      files: ^tools/.*\.tool\.(yml|yaml)$
+      files: ^tmp/tools/.*\.(yml|yaml)$
       stages: [commit, push]
     - id: check-jsonschema
       name: Validate Blackbox
       args: ["--schemafile", "schemas/blackbox.schema.json"]
-      files: ^blackboxes/.*\.blackbox\.(yml|yaml)$
+      files: ^tmp/blackboxes/.*\.(yml|yaml)$
       stages: [commit, push]
