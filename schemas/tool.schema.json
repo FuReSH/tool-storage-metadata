@@ -1,8 +1,7 @@
 {
     "$schema": "https://json-schema.org/draft/2020-12/schema",
-    "$id": "https://raw.githubusercontent.com/FuReSH/tool-storage-metadata/main/schemas/tool.schema.json",
+    "$id": "https://raw.githubusercontent.com/FuReSH/tool-storage-metadata/v0.1.0/schemas/tool.schema.json",
     "title": "Tool",
-    "version": "0.1.0",
     "description": "A schema to rudimentary describe a digital tool used for research in the humanities",
     "type": "object",
     "properties": {
@@ -18,19 +17,13 @@
         },
         "image": {
             "description": "URLs of the logo in Wikimedia Commons",
-            "type": "array",
-            "uniqueItems": true,
-            "items": {
-                "type": "object",
-                "patternProperties": {
-                    "(svg|png|jpg|jpeg)": {
-                        "type": "string",
-                        "pattern": "^(https://upload\\.wikimedia\\.org/wikipedia/commons/).+\\.(svg|png|jpg|jpeg)$",
-                        "format": "uri"
-                    }
-                },
-                "additionalProperties": false
-            }
+            "type": "object",
+            "properties": {
+                    "svg": { "$ref": "#/$defs/image-data" },
+                    "png": { "$ref": "#/$defs/image-data" },
+                    "jpg": { "$ref": "#/$defs/image-data" }
+            },
+            "additionalProperties": false
         },
         "classification": {
             "description": "Standard and internal vocabularies we used to classify our tools.",
@@ -57,28 +50,38 @@
             "then": { "required": [ "tadirah" ] }
         },
          "qr-code": {
-            "description": "",
-            "type": "array",
-            "uniqueItems": true,
-            "items": {
-                "type": "object",
-                "patternProperties": {
-                    "(svg|png|jpg|jpeg)": {
-                        "type": "string",
-                        "pattern": "^(https://raw\\.githubusercontent\\.com/FuReSH/tool-storage-metadata/main/assets/qr-code/)[a-z]{1}[a-z-]+(\\.qr\\.(svg|png|jpg|jpeg))$",
-                        "format": "uri"
-                    }
+            "description": "QR code of the tool's URL",
+            "type": "object",
+                "properties": {
+                    "svg": { "$ref": "#/$defs/qr-code-data" },
+                    "png": { "$ref": "#/$defs/qr-code-data" },
+                    "jpg": { "$ref": "#/$defs/qr-code-data" }
                 },
                 "additionalProperties": false
-            }
-         },
-        "set-up": { "$comment": "NOTICE: Incomplete, this subschema need to be declared yet!", "$ref": "#/$defs/set-up-data" }
+        },
+        "set-up": {
+            "title": "Installation and set-up",
+            "description": "Installation and set-ups guides for the tool.",
+            "type": "object",
+            "$comment": "NOTICE: Incomplete, this subschema need to be declared yet!" }
     },
     "additionalProperties": false,
     "required": [ "name", "wikidata-id", "classification" ],
 
 
     "$defs": {
+        "image-data": {
+            "examples": [ "https://upload.wikimedia.org/wikipedia/commons/1/1a/Logo_TeXstudio.svg" ],
+            "type": "string",
+            "pattern": "^(https://upload\\.wikimedia\\.org/wikipedia/commons/).+\\.(svg|png|jpg|jpeg)$",
+            "format": "uri"
+        },
+        "qr-code-data": {
+            "examples": [ "https://raw.githubusercontent.com/FuReSH/tool-storage-data/main/assets/qr-code/tei-p5.svg" ],
+            "type": "string",
+            "pattern": "^(https://raw\\.githubusercontent\\.com/FuReSH/tool-storage-data/main/assets/qr-code/)[a-z]{1}[a-z1-9\\-]+\\.(svg|png|jpg|jpeg)$",
+            "format": "uri"
+        },
         "smsp-category-data": {
             "title": "Taxonomy of Scholarly Makerspace (smsp) toolboxes, used for internal classification.",
             "description": "Expects Wikidata identifiers.",
@@ -86,8 +89,7 @@
             "type": "object",
             "properties": {
                 "api-base-url": {
-                    "const": "https://www.wikidata.org/w/rest.php/wikibase/v0",
-                    "readOnly": true
+                    "const": "https://www.wikidata.org/w/rest.php/wikibase/v0"
                 },
                 "identifiers": {
                     "type": "array",
@@ -116,7 +118,7 @@
             "examples": [ "posTagging", "namedEntityRecognition"],
             "type": "object",
             "properties": {
-                "api-base-url": { "const": "https://vocabs.dariah.eu/tadirah/", "readOnly": true },
+                "api-base-url": { "const": "https://vocabs.dariah.eu/tadirah/" },
                 "identifiers": {
                     "type": "array",
                     "uniqueItems": true,
@@ -128,28 +130,6 @@
             },
             "additionalProperties": false,
             "required": [ "identifiers" ]
-        },
-        "set-up-data": {
-            "desciption": "",
-            "type": "array",
-            "uniqueItems": true,
-            "items": {
-                "type": "object",
-                "properties": {
-                    "set-up-type": {
-                        "type": "string",
-                        "enum": [
-                            "docker",
-                            "local"
-                        ]
-                    },
-                    "content": {
-
-                    }
-                },
-                "additionalProperties": false,
-                "required": [ "set-up-type", "content" ]
-            }
         }
     }
 }

@@ -1,8 +1,7 @@
 {
     "$schema": "https://json-schema.org/draft/2020-12/schema",
-    "$id": "https://raw.githubusercontent.com/FuReSH/tool-storage-metadata/main/schemas/blackbox.schema.json",
+    "$id": "https://raw.githubusercontent.com/FuReSH/tool-storage-metadata/v0.1.0/schemas/blackbox.schema.json",
     "title": "Blackbox",
-    "version": "0.1.0",
     "description": "A schema to rudimentary describe a digital tool as a blackbox having input, processing steps and output",
     "type": "object",
     "properties": {
@@ -11,7 +10,7 @@
           "type": "string",
           "pattern": "^[a-z]{1}[a-z-]+[a-z]{1}$"
       },
-      "tadirah": { "description": "", "$ref": "https://raw.githubusercontent.com/FuReSH/tool-storage-metadata/main/schemas/tool.schema.json#/properties/classification/properties/tadirah" },
+      "tadirah": { "description": "", "$ref": "https://raw.githubusercontent.com/FuReSH/tool-storage-metadata/v0.1.0/schemas/tool.schema.json#/properties/classification/properties/tadirah" },
       "input": { "description": "", "$ref": "#/$defs/tools" },
       "processing": { "description": "", "$ref": "#/$defs/tools" },
       "output": { "description": "", "$ref": "#/$defs/tools" }
@@ -25,7 +24,7 @@
         "uniqueItems": true,
         "minItems": 1,
         "items": {
-          "$ref": "https://raw.githubusercontent.com/FuReSH/tool-storage-metadata/main/schemas/tool.schema.json#/properties/name"
+          "$ref": "https://raw.githubusercontent.com/FuReSH/tool-storage-metadata/v0.1.0/schemas/tool.schema.json#/properties/name"
         }
     }
   }
