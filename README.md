@@ -3,20 +3,6 @@
 
 This repo was used to build the open wikidata-based tool registry and is no longer up-to-date. Please use the [Wikidata:Wikiproject DH Tool Registry](https://www.wikidata.org/wiki/Wikidata:WikiProject_DH_Tool_Registry) for more information.
 
----
-title: "Readme: Werkzeugregal"
-subtitle: ""
-author:
-    - Till Grallert
-    - Sophie Eckenstaler
-date: 2023-02-13
-ORCID: orcid.org/0000-0002-5739-8094
-tags:
-    - tools
-    - FuReSH
-    - readme
----
-
 [![pre-commit.ci status](https://results.pre-commit.ci/badge/github/FuReSH/tool-storage-metadata/main.svg)](https://results.pre-commit.ci/latest/github/FuReSH/tool-storage-metadata/main)
 [![Last check of YAML test data](https://github.com/FuReSH/tool-storage-metadata/actions/workflows/test-your-data.yml/badge.svg)](https://github.com/FuReSH/tool-storage-metadata/actions/workflows/test-your-data.yml)
 
