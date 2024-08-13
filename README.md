@@ -1,3 +1,8 @@
+
+# ⚠️ Notice
+
+This repo was used to build the open wikidata-based tool registry and is no longer up-to-date. Please use the [Wikidata:Wikiproject DH Tool Registry](https://www.wikidata.org/wiki/Wikidata:WikiProject_DH_Tool_Registry) for more information.
+
 ---
 title: "Readme: Werkzeugregal"
 subtitle: ""
